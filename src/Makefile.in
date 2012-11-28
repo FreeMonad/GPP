@@ -1,0 +1,8 @@
+CFLAGS=-Wall -fno-strict-aliasing -fomit-frame-pointer -I/usr/local/include -lc -lm -L/usr/local/lib -lpari -c $(PERL_CFLAGS)
+PERL_CFLAGS=-D_REENTRANT -D_GNU_SOURCE -DDEBIAN -fno-strict-aliasing -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -g -fPIC -I/usr/lib/perl/5.10/CORE
+LDFLAGS=$(PERL_LDFLAGS) -lm -I/usr/local/lib -lpari
+PERL_LDFLAGS=-shared -O2 -g -L/usr/local/lib -fstack-protector
+CFLAGS=-Wall -fno-strict-aliasing -fomit-frame-pointer -I/usr/local/include -lc -lm -L/usr/local/lib -lpari -c $(PERL_CFLAGS)
+PERL_CFLAGS=-D_REENTRANT -D_GNU_SOURCE -DDEBIAN -fno-strict-aliasing -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -g -fPIC -I/usr/lib/perl/5.10/CORE
+LDFLAGS=$(PERL_LDFLAGS) -lm -I/usr/local/lib -lpari
+PERL_LDFLAGS=-shared -O2 -g -L/usr/local/lib -fstack-protector
