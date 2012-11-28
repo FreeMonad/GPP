@@ -1,7 +1,7 @@
 GPP
 ===
 
-An extensible and customizable interpreter for PARI/GP in Perl
+An extensible and customizable interpreter for PARI/GP, written in Perl.
 
 Example Session
 ===============
