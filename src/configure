@@ -4,7 +4,8 @@
 ## ( BETTER YET, ACTUALLY USE AUTOCONF )
 
 MAKEFILE_IN=./Makefile.in
-touch $MAKEFILE_IN
+
+rm -f $MAKEFILE_IN
 
 PERL_CFLAGS=`perl -MConfig -e 'print join(" ", @Config{qw(ccflags optimize cccdlflags)}, "-I$Config{archlib}/CORE")'`
 CFLAGS='-Wall -fno-strict-aliasing -fomit-frame-pointer -I/usr/local/include -lc -lm -L/usr/local/lib -lpari -c $(PERL_CFLAGS)'
@@ -17,7 +18,7 @@ echo "PERL_CFLAGS=$PERL_CFLAGS"
 echo "LDFLAGS=$LDFLAGS"
 echo "PERL_LDFLAGS=$PERL_LDFLAGS"
 
-
+echo "#-*-Makefile-*-" > $MAKEFILE_IN
 echo "CFLAGS=$CFLAGS" >> $MAKEFILE_IN
 echo "PERL_CFLAGS=$PERL_CFLAGS" >> $MAKEFILE_IN
 echo "LDFLAGS=$LDFLAGS" >> $MAKEFILE_IN

@@ -1,0 +1,5 @@
+*.o
+*.so
+lib/parisrv.pm
+src/parisrv.pm
+src/parisrv_wrap.c
