@@ -5,13 +5,13 @@ package GPP;
 use warnings;
 use strict;
 
-use Pari;
+use GPP::Pari;
 
 sub new {
   my $class = shift;
   my %opts = @_;
   my $self = {
-	      'pari' => $opts{'pari'} || Pari->new(),
+	      'pari' => $opts{'pari'} || GPP::Pari->new( 'max_prime' => 500509),
 	      'prompt' => $opts{'prompt'} || '(gpp)? ',
 	      'histsize_cache' => 0,
 	     };
@@ -22,7 +22,6 @@ sub new {
 sub start {
   my $self = shift;
   $self->{'pari'}->init();
-  $self->print_prompt();
 }
 
 sub get_prompt {
@@ -53,27 +52,21 @@ sub quit {
   exit(0);
 }
 
-sub print_prompt {
-  my $self = shift;
-  my $prompt = $self->get_prompt();
-  print "$prompt";
-}
 
 sub print_result {
   my ( $self, $output ) = @_;
   my $pari = $self->{'pari'};
   my $histsize_cache = $self->{'histsize_cache'};
   my $pari_histsize = $pari->history_size();
+  my $result = '';
 
   if ( $histsize_cache < $pari_histsize ) {
     $self->{'histsize_cache'} = $pari_histsize;
-    print ' %' . "$pari_histsize" . ' = ' . "$output", "\n";
-    return 1;
+    $result = ' %' . "$pari_histsize" . ' = ' . "$output", "\n";
   } else {
-    print "  $output", "\n";
-    return 1;
+    $result = ' ' . "$output", "\n";
   }
-  return 0;
+  return $result;
 }
 
 1;

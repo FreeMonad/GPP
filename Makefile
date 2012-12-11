@@ -4,8 +4,8 @@ all: parisrv
 
 parisrv:
 	make -C ./src
-	mv ./src/parisrv.so ./lib/parisrv.so
-	mv ./src/parisrv.pm ./lib/parisrv.pm
+	mv ./src/parisrv.so ./lib/GPP/parisrv.so
+	mv ./src/parisrv.pm ./lib/GPP/parisrv.pm
 
 clean:
 	make -C ./src clean
