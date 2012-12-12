@@ -11,20 +11,18 @@
 
 void gp_err_recover(long numerr);
 
-static void srvOutC(char c);
+static void svOutC(char c);
 
-static void srvOutS(const char *s);
+static void svOutS(const char *s);
 
-static void srvOutF(void);
+static void svOutF(void);
 
-void parisrv_quit(long exitcode);
+void quit(long exitcode);
 
 void help(const char *s);
 
-void parisrv_init(void);
+void parisv_init(void);
 
-char *parisrv_eval(const char *in);
+char *evaluate(const char *in);
 
-int parisrv_nb_hist(void);
-
-void parisrv_close(void);
+int parisv_nb_hist(void);

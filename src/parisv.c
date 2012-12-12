@@ -1,6 +1,6 @@
 /**
  *-----------------------------------------------
- * parisrv.c - wrapper around libpari.
+ * parisv.c - wrapper around libpari.
  *-----------------------------------------------
  * Copyright (C) 2012, Charles Boyd
  *
@@ -18,46 +18,46 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "parisrv.h"
+#include "parisv.h"
 
 /** number of bytes to initialize pari stack with */
-size_t parisrv_stack_size = 4000000;
+size_t parisv_stack_size = 4000000;
 
 /** maximum value for the prime table */
-ulong parisrv_maxprime = 500509;
+ulong parisv_maxprime = 500509;
 
 /** Error handling */
 jmp_buf env;
 
 void gp_err_recover(long numerr) { longjmp(env, numerr); }
 
-static char *srvStr;
+static char *svStr;
 
-static pari_stack s_srvStr;
+static pari_stack s_svStr;
 
 static void
-srvOutC(char c) 
+svOutC(char c) 
 { 
-  long n = pari_stack_new(&s_srvStr); 
-  srvStr[n] = c;
+  long n = pari_stack_new(&s_svStr); 
+  svStr[n] = c;
 }
 
 static void
-srvOutS(const char *s) 
+svOutS(const char *s) 
 {
   while(*s) 
-    srvOutC(*s++); 
+    svOutC(*s++); 
 }
 
 static void
-srvOutF(void) { }
+svOutF(void) { /* EMPTY */ }
 
-static PariOUT srvOut = {srvOutC, srvOutS, srvOutF};
+static PariOUT svOut = {svOutC, svOutS, svOutF};
 
 void 
-parisrv_quit(long exitcode) 
+quit(long exitcode) 
 {
-  parisrv_close();
+  pari_close();
 }
 
 void
@@ -71,26 +71,25 @@ help(const char *s)
 }
 
 void 
-parisrv_init(void)
+parisv_init(void)
 {
   
   static const entree functions_gp[]={
-    {"quit",0,(void*)parisrv_quit,11,"vD0,L,","quit({status = 0}): quit, return to the system with exit status 'status'."},
+    {"quit",0,(void*)quit,11,"vD0,L,","quit({status = 0}): quit, return to the system with exit status 'status'."},
     {"help",0,(void*)help,11,"vr","help(fun): display help for function fun"},
     {NULL,0,NULL,0,NULL,NULL}};
   
-  pari_init(parisrv_stack_size, parisrv_maxprime);
+  pari_init(parisv_stack_size, parisv_maxprime);
   pari_add_module(functions_gp);
   cb_pari_err_recover = gp_err_recover;
-  pari_stack_init(&s_srvStr,sizeof(*srvStr),(void**)&srvStr);
+  pari_stack_init(&s_svStr,sizeof(*svStr),(void**)&svStr);
   
-  pariOut=&srvOut;
-  pariErr=&srvOut;
-
+  pariOut=&svOut;
+  pariErr=&svOut;
 }
 
 char 
-*parisrv_eval(const char *in) 
+*evaluate(const char *in) 
 {
 
   if(setjmp(env) != 0) {
@@ -98,13 +97,13 @@ char
     return "";
   }
 
-  s_srvStr.n=0;
+  s_svStr.n=0;
   avma=top;
 
   volatile GEN z = gnil;
   CATCH(CATCH_ALL)
   {
-    srvOutS(pari_err2str(global_err_data));
+    svOutS(pari_err2str(global_err_data));
   } TRY {
     z = gp_read_str(in);
   } ENDCATCH;
@@ -116,15 +115,16 @@ char
       if (in[strlen(in)-1]!=';') 
 	{
 	  out = GENtostr(z);
-	  srvOutS(out);
+	  svOutS(out);
 	}
   }
-  srvOutC(0);
-  return srvStr;
+  svOutC(0);
+  return svStr;
 }
 
-int
-parisrv_nb_hist() { return pari_nb_hist(); }
 
-void
-parisrv_close() { pari_close(); }
+
+int
+parisv_nb_hist() { return pari_nb_hist(); }
+
+/* EOF */
