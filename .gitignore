@@ -1,5 +1,5 @@
 *.o
 *.so
-lib/parisrv.pm
-src/parisrv.pm
-src/parisrv_wrap.c
+lib/GPP/parisv.pm
+src/parisv.pm
+src/parisv_wrap.c

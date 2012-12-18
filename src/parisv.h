@@ -26,3 +26,5 @@ void parisv_init(void);
 char *evaluate(const char *in);
 
 int parisv_nb_hist(void);
+
+char *parisv_type(const char *in);

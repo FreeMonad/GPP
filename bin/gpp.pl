@@ -20,18 +20,21 @@ print "rows = $rows, columns = $columns","\n";
 
 $gpp->start();
 
-my @primes = $gpp->process_command('primes(100)');
-foreach my $prime ( @primes ) {
-  print "$prime","\n";
-}
-
 while ( defined ( $_ = $term->readline($prompt))) {
 
-  my $output = $gpp->process_command($_);
-  my $result = $gpp->print_result($output);
+  my ( $output, $type ) = $gpp->process_command($_);
+  my $history = $gpp->update_history();
+  my $result;
+
+  if ( $history ) {
+    $result = '%' . "$history" . ' = ' . "\n" . "$output" . "\n\t" . '[' . "$type" . ']';
+  } else {
+    $result = "$output", "\n";
+  }
 
   warn $@ if $@;
   print $OUT $result, "\n" unless $@;
 }
 
 #EOF
+

@@ -4,7 +4,7 @@ package GPP::Pari;
 
 use warnings;
 use strict;
-use parisrv;
+use parisv;
 
 sub new {
   my $class = shift;
@@ -28,7 +28,7 @@ sub new {
 
 sub init {
   my $self = shift;
-  parisrv::parisrv_init();
+  parisv::parisv_init();
   if ( $self->{pari_size} ) { $self->set_default('parisize', $self->{pari_size}); }
   if ( $self->{real_precision} ) { $self->set_default('realprecision', $self->{real_precision}); }
   if ( $self->{series_precision} ) { $self->set_default('seriesprecision', $self->{series_precision}); }
@@ -41,19 +41,25 @@ sub set_default {
 }
 
 sub evaluate {
-  my ($self, $expression ) = @_;
-  my $result = parisrv::parisrv_eval("$expression");
+  my ( $self, $expression ) = @_;
+  my $result = parisv::evaluate("$expression");
   return $result;
+}
+
+sub type {
+  my ( $self, $expression ) = @_;
+  my $type = parisv::parisv_type("$expression");
+  return $type;
 }
 
 sub history_size {
   my $self = shift;
-  return parisrv::parisrv_nb_hist();
+  return parisv::parisv_nb_hist();
 }
 
 sub quit {
   my $self = shift;
-  parisrv::parisrv_close();
+  parisv::quit();
 }
 
 1;

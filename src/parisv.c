@@ -122,7 +122,91 @@ char
   return svStr;
 }
 
+char
+*parisv_type(const char *in)
+{
+  volatile GEN z = gnil;
+  const char *type_str;
 
+  CATCH(CATCH_ALL)
+  {
+    svOutS(pari_err2str(global_err_data));
+  } TRY {
+    z = gp_read_str(in);
+  } ENDCATCH;
+
+  if (z != gnil) {
+    
+    long pari_type = typ(z);
+
+    switch(pari_type) {
+
+    case t_INT:
+      type_str = "t_INT";
+      break;
+    case t_REAL:
+      type_str = "t_REAL";
+      break;
+    case t_FFELT:
+      type_str = "t_FFELT";
+      break;
+    case t_COMPLEX:
+      type_str = "t_COMPLEX";
+      break;
+    case t_PADIC:
+      type_str = "t_PADIC";
+      break;
+    case t_QUAD:
+      type_str = "t_QUAD";
+      break;
+    case t_POLMOD:
+      type_str = "t_POLMOD";
+      break;
+    case t_POL:
+      type_str = "t_POL";
+      break;
+    case t_SER:
+      type_str = "t_SER";
+      break;
+    case t_RFRAC:
+      type_str = "t_RFRAC";
+      break;
+    case t_QFR:
+      type_str = "t_QFR";
+      break;
+    case t_QFI:
+      type_str = "t_QFI";
+      break;
+    case t_VEC:
+      type_str = "t_VEC";
+      break;
+    case t_COL: 
+      type_str = "t_COL";
+      break;
+    case t_MAT:
+      type_str = "t_MAT";
+      break;
+    case t_VECSMALL:
+      type_str = "t_VECSMALL";
+      break;
+    case t_CLOSURE:
+      type_str = "t_CLOSURE";
+      break;
+    case t_LIST:
+      type_str = "t_LIST";
+      break;
+    case t_ERROR:
+      type_str = "t_ERROR";
+      break;
+    default:
+      type_str = "UNDEF";
+      break;
+    }
+  } else {
+    type_str = "GNIL";
+  }
+  return type_str;
+}
 
 int
 parisv_nb_hist() { return pari_nb_hist(); }
