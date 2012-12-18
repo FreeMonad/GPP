@@ -3,10 +3,9 @@
 use warnings;
 use strict;
 
-BEGIN { push @INC, './lib', './lib/GPP', '/usr/share/perl/5.10.1/Term'; }
+BEGIN { push @INC, './lib', './lib/GPP'; }
 
 use GPP;
-use Term::ReadLine;
 
 my $prompt = '(gpp)? ';
 
