@@ -14,7 +14,7 @@ my $counter = 0;
 my @commands = ();
 
 display Window
-  title     => 'Foo Processor',
+  title     => 'GP-XUL',
   minheight => 300,
   Hbox( MIDDLE,
 	TextBox(
