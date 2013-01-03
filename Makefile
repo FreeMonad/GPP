@@ -7,9 +7,15 @@ parisrv:
 	mv ./src/parisv.so ./lib/GPP/parisv.so
 	mv ./src/parisv.pm ./lib/GPP/parisv.pm
 
+install:
+	ln -s ./bin/gpp.pl ./gpp
+	ln -s ./bin/gui.pl ./gui
+
 clean:
 	make -C ./src clean
 
 uberclean: clean
 	rm -f ./lib/parisv.so
 	rm -f ./lib/parisv.pm
+	rm -f ./gpp
+	rm -f ./gui

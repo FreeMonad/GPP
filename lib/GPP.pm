@@ -37,7 +37,12 @@ sub process_command {
     $self->quit();
   } elsif ( $expr =~ /(\?{1,2})([a-z]+)/g ) {
     my $help = 'help(' . "$2" . ')';
-    return ( $pari->evaluate($help), "HELP" );
+    return ( $pari->evaluate($help), "t_HELP" );
+  } elsif ( $expr =~ /^\\d/ ) {
+    return ( $pari->evaluate("default()"), "t_UNDEF" );
+  } elsif ( $expr =~ /^(\\e)(.*)/ ) {
+    my $block = $2;
+    return ( eval($2) );
   } else {
     return ( $pari->evaluate($expr), $pari->type($expr) );
   }
@@ -62,6 +67,5 @@ sub quit {
   $self->{'pari'}->quit();
   exit(0);
 }
-
 
 1;
