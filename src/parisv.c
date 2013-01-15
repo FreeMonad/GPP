@@ -101,12 +101,12 @@ char
   avma=top;
 
   volatile GEN z = gnil;
-  CATCH(CATCH_ALL)
+  pari_CATCH(CATCH_ALL)
   {
-    svOutS(pari_err2str(global_err_data));
-  } TRY {
+    svOutS(pari_err2str(__iferr_data));
+  } pari_TRY {
     z = gp_read_str(in);
-  } ENDCATCH;
+  } pari_ENDCATCH;
  
   if (z != gnil) 
   {
@@ -128,12 +128,12 @@ char
   volatile GEN z = gnil;
   const char *type_str;
 
-  CATCH(CATCH_ALL)
+  pari_CATCH(CATCH_ALL)
   {
-    svOutS(pari_err2str(global_err_data));
-  } TRY {
+    svOutS(pari_err2str(__iferr_data));
+  } pari_TRY {
     z = gp_read_str(in);
-  } ENDCATCH;
+  } pari_ENDCATCH;
 
   if (z != gnil) {
     
