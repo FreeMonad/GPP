@@ -14,6 +14,7 @@ sub new {
 	      'pari' => $opts{'pari'} || GPP::Pari->new( 'max_prime' => 500509),
 	      'prompt' => $opts{'prompt'} || '(gpp)? ',
 	      'histsize_cache' => 0,
+	      'scalar_mode' => $opts{'scalar_mode'} || 0,
 	     };
   bless $self, $class;
   return $self;
@@ -31,20 +32,51 @@ sub get_prompt {
 
 sub process_command {
   my ( $self, $expr ) = @_;
+
+  my $pari = $self->{'pari'};
+
+  unless ( $self->{'scalar_mode'} ) {
+    return $self->_process_command( $expr );
+  } else {
+    my ( $result, $type ) = $self->_process_command( $expr );
+    return $result;
+  }
+}
+
+sub _process_command {
+  my ( $self, $expr ) = @_;
+
   my $pari = $self->{'pari'};
 
   if ( $expr =~ /quit\(\)/ || $expr =~ /quit/ || $expr =~ /\\q/ ) {
     $self->quit();
-  } elsif ( $expr =~ /(\?{1,2})([a-z]+)/g ) {
+  }
+  elsif ( $expr =~ /(\?{1,2})([a-z]+)/g ) {
     my $help = 'help(' . "$2" . ')';
-    return ( $pari->evaluate($help), "t_HELP" );
-  } elsif ( $expr =~ /^\\d/ ) {
-    return ( $pari->evaluate("default()"), "t_UNDEF" );
-  } elsif ( $expr =~ /^(\\e)(.*)/ ) {
+    return ( $pari->evaluate($help), 't_HELP' );
+  }
+  elsif ( $expr =~ /^\\/ ) {
+    return ( $self->process_metacommand($expr), 't_META' );
+  }
+  else {
+    return ( $pari->evaluate($expr), $pari->type($expr) );
+  }
+}
+
+sub process_metacommand {
+  my ( $self, $expr ) = @_;
+
+  my $pari = $self->{'pari'};
+
+  if ( $expr =~ /^\\d/ ) {
+    return $pari->evaluate("default()");
+  }
+  elsif ( $expr =~ /^(\\e)(.*)/ ) {
     my $block = $2;
     return ( eval($2) );
-  } else {
-    return ( $pari->evaluate($expr), $pari->type($expr) );
+  }
+  else {
+    return 0;
   }
 }
 
