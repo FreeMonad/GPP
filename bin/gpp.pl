@@ -6,13 +6,11 @@ use strict;
 BEGIN { push @INC, './lib', './lib/GPP', '/usr/share/perl/5.10.1/Term'; }
 
 use GPP;
-use GPP::Meta;
 use Term::ReadLine;
 
 my $prompt = '(gpp)? ';
 
 my $gpp = GPP->new( 'prompt' => $prompt );
-my $meta = GPP::Meta->new();
 
 my $term = Term::ReadLine->new("gpp");
 my $OUT = $term->OUT || \*STDOUT;

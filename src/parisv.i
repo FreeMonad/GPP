@@ -5,9 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <setjmp.h>
-#include <pari/pari.h>
-
 #undef warner
+#include <pari/pari.h>
 
   void parisv_init(void);
   char *evaluate(const char *in);
