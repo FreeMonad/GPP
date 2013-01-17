@@ -25,25 +25,17 @@ sub start {
   $self->{'pari'}->init();
 }
 
+sub get_version {
+  my ( $self ) = @_;
+  return $self->{pari}->{version};
+}
+
 sub get_prompt {
   my $self = shift;
   return $self->{'prompt'};
 }
 
 sub process_command {
-  my ( $self, $expr ) = @_;
-
-  my $pari = $self->{'pari'};
-
-  unless ( $self->{'scalar_mode'} ) {
-    return $self->_process_command( $expr );
-  } else {
-    my ( $result, $type ) = $self->_process_command( $expr );
-    return $result;
-  }
-}
-
-sub _process_command {
   my ( $self, $expr ) = @_;
 
   my $pari = $self->{'pari'};
@@ -57,6 +49,9 @@ sub _process_command {
   }
   elsif ( $expr =~ /^\\/ ) {
     return ( $self->process_metacommand($expr), 't_META' );
+  }
+  elsif ( $expr =~ /version/ ) {
+    return ( $self->get_version(), 'VERSION' );
   }
   else {
     return ( $pari->evaluate($expr), $pari->type($expr) );

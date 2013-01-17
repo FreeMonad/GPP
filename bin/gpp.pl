@@ -10,17 +10,14 @@ use Term::ReadLine;
 
 my $prompt = '(gpp)? ';
 
-my $gpp = GPP->new( 'prompt' => $prompt );
+my $gpp = GPP->new( 'prompt' => $prompt);
+
+$gpp->start();
 
 my $term = Term::ReadLine->new("gpp");
 my $OUT = $term->OUT || \*STDOUT;
 
-print $OUT "\t",'GPP/PARI Calculator',"\n";
-print_license();
-print_help();
-print $OUT "\n";
-
-$gpp->start();
+print_version();
 
 while ( defined ( $_ = $term->readline($prompt))) {
 
@@ -38,15 +35,10 @@ while ( defined ( $_ = $term->readline($prompt))) {
   }
 }
 
-sub print_license {
-  print $OUT
-    'PARI/GP is free software, covered by the GNU General Public License,',"\n",
-      'and comes WITHOUT ANY WARRANTY WHATSOEVER.',"\n";
-}
-
-sub print_help {
-  print $OUT
-    "\t",'Use ? to get help for a function',"\n";
+sub print_version {
+  print $OUT 'GPP/PARI CALCULATOR - ';
+  print $OUT $gpp->get_version(), "\n";
+  print $OUT "\n";
 }
 
 #EOF

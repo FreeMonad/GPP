@@ -27,15 +27,48 @@ sub new {
 }
 
 sub init {
-  my $self = shift;
+  my ( $self ) = @_;
+
   parisv::parisv_init();
+
+  $self->{version} = $self->set_version($self->evaluate('version()'));
+
   if ( $self->{pari_size} ) { $self->set_default('parisize', $self->{pari_size}); }
   if ( $self->{real_precision} ) { $self->set_default('realprecision', $self->{real_precision}); }
   if ( $self->{series_precision} ) { $self->set_default('seriesprecision', $self->{series_precision}); }
 }
 
+sub get_version {
+  my ( $self ) = @_;
+  return $self->{'version'};
+}
+
+sub set_version {
+  my ( $self, $pari_version ) = @_;
+
+  chomp($pari_version);
+  $pari_version =~ s/^\[//;
+  $pari_version =~ s/\]$//;
+  $pari_version =~ s/\s+//g;
+
+  my ( $vers, $major, $minor, $branch ) = split( ',', $pari_version );
+
+  my $version =  join ( '.', ( $vers, $major, $minor ) );
+
+  if ( $branch ) {
+    $branch =~ s/\"//g;
+    return 'Version ' . $version . " ( development $branch )";
+  } else {
+    return 'Version ' . $version . ' ( release )';
+  }
+}
+
 sub set_default {
   my ( $self, $key, $value ) = @_;
+
+  unless ( $value ) {
+    return $self->evaluate("default($key)");
+  }
   $self->evaluate("default($key,$value)");
   return $self->evaluate("default($key)");
 }

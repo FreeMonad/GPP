@@ -1,6 +1,6 @@
 .PHONY: all parisrv clean
 
-all: parisrv
+all: parisrv install
 
 parisrv:
 	make -C ./src
@@ -13,9 +13,9 @@ install:
 
 clean:
 	make -C ./src clean
+	rm -f ./gpp
+	rm -f ./gui
 
 uberclean: clean
 	rm -f ./lib/parisv.so
 	rm -f ./lib/parisv.pm
-	rm -f ./gpp
-	rm -f ./gui

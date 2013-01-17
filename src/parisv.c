@@ -57,6 +57,7 @@ static PariOUT svOut = {svOutC, svOutS, svOutF};
 void 
 quit(long exitcode) 
 {
+  pari_printf("Bye!");
   pari_close();
 }
 
@@ -70,6 +71,13 @@ help(const char *s)
     pari_printf("Function %s not found\n",s);
 }
 
+void
+version(void)
+{
+  const char *version = GENtostr(pari_version());
+  pari_printf("%s",version);
+}
+
 void 
 parisv_init(void)
 {
@@ -77,6 +85,7 @@ parisv_init(void)
   static const entree functions_gp[]={
     {"quit",0,(void*)quit,11,"vD0,L,","quit({status = 0}): quit, return to the system with exit status 'status'."},
     {"help",0,(void*)help,11,"vr","help(fun): display help for function fun"},
+    {"version",0,(void*)version,11,"v","version(): display the version information for Pari/GP"},
     {NULL,0,NULL,0,NULL,NULL}};
   
   pari_init(parisv_stack_size, parisv_maxprime);
