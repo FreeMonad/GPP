@@ -1,4 +1,6 @@
-.PHONY: all parisrv clean
+.PHONY: all parisrv clean uberclean
+
+include ./Makefile.in
 
 all: parisrv install
 

@@ -1,6 +1,6 @@
 .PHONY: all clean test
 
-include ./Makefile.in
+include ../Makefile.in
 
 all:
 	swig -perl5 parisv.i

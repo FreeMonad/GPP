@@ -1,0 +1,40 @@
+#!/usr/bin/env perl
+
+use warnings;
+use strict;
+
+use File::Spec;
+use Config;
+
+my $cwd = File::Spec->rel2abs(File::Spec->curdir());
+
+my $makefile_in = File::Spec->catfile( "$cwd", './Makefile.in' );
+
+write_config(gen_config());
+
+sub gen_config {
+
+  my $config = { };
+
+  $config->{perl_cflags} = join( " ", @Config{qw(ccflags optimize cccdlflags)}, "-I$Config{archlib}/CORE");
+  $config->{perl_ldflags} = $Config{lddlflags};
+  $config->{cflags} = '-Wall -fno-strict-aliasing -fomit-frame-pointer -I/usr/local/include -lc -lm -L/usr/local/lib -lpari -c $(PERL_CFLAGS)';
+  $config->{ldflags} = '$(PERL_LDFLAGS) -lm -I/usr/local/lib -lpari';
+
+  return $config;
+}
+
+sub write_config {
+  my ( $config ) = @_;
+
+  open( my $FH, '>', $makefile_in )
+    or die "could open $makefile_in for writing: $!";
+
+  foreach my $key ( keys %{ $config } ) {
+    my $line = uc($key) . '=' . $config->{$key};
+    print $FH "$line","\n";
+  }
+}
+
+
+
