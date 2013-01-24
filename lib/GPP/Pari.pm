@@ -81,7 +81,7 @@ sub evaluate_cmd {
 
 sub escape_cmd {
   my ( $self, $escape_command ) = @_;
-  parisv::gpp_escape($escape_command);
+  return "$escape_command - not implemented";
 }
 
 sub result_type {

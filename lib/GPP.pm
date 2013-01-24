@@ -39,8 +39,8 @@ sub evaluate {
 
   my $result = { };
 
-  if ( $expr =~ /quit\(\)/ ) {
-    $pari->quit();
+  if ( $expr =~ /quit\(\)/ || $expr =~ /quit/ ) {
+    $self->quit();
   }
   elsif ( $expr =~ /(\?{1,2})([a-z]+)/g ) {
     my $help = 'help(' . "$2" . ')';
@@ -82,7 +82,7 @@ sub escape {
   my $pari = $self->{'pari'};
 
   if ( $expr =~ /^(\\)(q)/ ) {
-    $pari->quit();
+    $self->quit();
   }
   elsif ( $expr =~ /^(\\)(v)/ ) {
     return $self->get_version();
@@ -94,9 +94,9 @@ sub escape {
     return ( eval($3) );
   }
   elsif ( $expr =~ /^(\\)(.*)/ ) {
-    my $dbg = $pari->escape_cmd("$1"."$2");
-    return "DEBUG: $dbg";
-  } else {
+    return $pari->escape_cmd("$1"."$2");
+  }
+  else {
     return "";
   }
 }

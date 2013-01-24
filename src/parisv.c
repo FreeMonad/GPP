@@ -131,11 +131,13 @@ char
   return svStr;
 }
 
+/** 
 void 
 gpp_escape(char *c)
 {
   process_esc(c);
 }
+*/
 
 char
 *parisv_type(const char *in)
