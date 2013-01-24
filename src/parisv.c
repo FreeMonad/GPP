@@ -116,7 +116,7 @@ char
   } pari_TRY {
     z = gp_read_str(in);
   } pari_ENDCATCH;
- 
+  
   if (z != gnil) 
   {
       char *out;
@@ -129,6 +129,12 @@ char
   }
   svOutC(0);
   return svStr;
+}
+
+void 
+gpp_escape(char *c)
+{
+  process_esc(c);
 }
 
 char

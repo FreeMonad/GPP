@@ -31,7 +31,7 @@ sub init {
 
   parisv::parisv_init();
 
-  $self->{version} = $self->set_version($self->evaluate('version()'));
+  $self->{version} = $self->set_version($self->evaluate_cmd('version()'));
 
   if ( $self->{pari_size} ) { $self->set_default('parisize', $self->{pari_size}); }
   if ( $self->{real_precision} ) { $self->set_default('realprecision', $self->{real_precision}); }
@@ -67,19 +67,24 @@ sub set_default {
   my ( $self, $key, $value ) = @_;
 
   unless ( $value ) {
-    return $self->evaluate("default($key)");
+    return $self->evaluate_cmd("default($key)");
   }
-  $self->evaluate("default($key,$value)");
-  return $self->evaluate("default($key)");
+  $self->evaluate_cmd("default($key,$value)");
+  return $self->evaluate_cmd("default($key)");
 }
 
-sub evaluate {
+sub evaluate_cmd {
   my ( $self, $expression ) = @_;
   my $result = parisv::evaluate("$expression");
   return $result;
 }
 
-sub type {
+sub escape_cmd {
+  my ( $self, $escape_command ) = @_;
+  parisv::gpp_escape($escape_command);
+}
+
+sub result_type {
   my ( $self, $expression ) = @_;
   my $type = parisv::parisv_type("$expression");
   return $type;

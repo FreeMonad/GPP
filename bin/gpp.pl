@@ -17,25 +17,21 @@ $gpp->start();
 my $term = Term::ReadLine->new("gpp");
 my $OUT = $term->OUT || \*STDOUT;
 
-print_version();
+gpp_header();
 
 while ( defined ( $_ = $term->readline($prompt))) {
 
-  my ( $output, $type ) = $gpp->process_command($_);
-  my $history = $gpp->update_history();
+  my $result = $gpp->evaluate($_);
 
   warn $@ if $@;
 
-  if ( $history ) {
-    print $OUT '%' . "$history" . ' = ' . "\n" . "$output" . "\n\t" . '[' . "$type" . ']', "\n"
-      unless $@;
-  } else {
-    print $OUT "$output", "\n"
-      unless $@;
-  }
+  my $output = join( "", ('%', $result->{history}, ' = ', "\n", $result->{output}, "\n\n") );
+
+  print $OUT "$output"
+    unless $@;
 }
 
-sub print_version {
+sub gpp_header {
   print $OUT 'GPP/PARI CALCULATOR - ';
   print $OUT $gpp->get_version(), "\n";
   print $OUT "\n";

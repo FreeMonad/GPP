@@ -13,17 +13,23 @@ my $gpp = GPP->new( 'prompt' => $prompt );
 
 $gpp->start();
 
-my @test = $gpp->process_command('primes(10)');
+my @test = evaluate('primes(10)');
+
 my $primes = $test[0];
+
 my @prime_array = open_parivec($primes);
 
 foreach my $pr ( @prime_array ) {
-  my $cmd = 'matid' . '(' . "$pr" . ')';
-  my @mat = $gpp->process_command($cmd);
+  my @mat = evaluate('matid' . '(' . "$pr" . ')');
   print "$mat[0]", "\n";
 }
 
 $gpp->quit();
+
+sub evaluate {
+  my ( $cmd ) = @_;
+  return $gpp->evaluate("$cmd")->{output};
+}
 
 sub open_parivec {
   my $vec = shift;
