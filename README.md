@@ -17,12 +17,8 @@ Example Session
       %4 = x - 1/6*x^3 + 1/120*x^5 - 1/5040*x^7 + 1/362880*x^9 - 1/39916800*x^11 + 1/6227020800*x^13 - 1/1307674368000*x^15 + O(x^16)                                                                                                                                               
     (gp)? quit()                                                                                                                                                                                                                                                                   
      bye!
-Note
+
+Notes
 ====
 
-To compile, you will have to first build and install PARI/GP from source (latest development branch is best), then 
-run the following command as root:
-
-    sed -e 's/warner/pari_warner/' /usr/local/include/pari/pariinl.h -i
-
-This is (hopefully) only a temporary measure.
+Depends on libpari 2.6.0 or later being installed on the system - preferably compiled from source.
