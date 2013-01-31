@@ -7,8 +7,9 @@ BEGIN { push @INC, './lib', './lib/GPP', '/usr/share/perl/5.10.1/Term'; }
 
 use GPP;
 use Term::ReadLine;
+use POSIX qw(strftime);
 
-my $prompt = '(gpp)? ';
+my $prompt = '[%H:%M] (gpp)? ';
 
 my $gpp = GPP->new( 'prompt' => $prompt);
 
@@ -19,7 +20,7 @@ my $OUT = $term->OUT || \*STDOUT;
 
 gpp_header();
 
-while ( defined ( $_ = $term->readline($prompt))) {
+while ( defined ( $_ = $term->readline( update_prompt() ) ) ) {
 
   my $result = $gpp->evaluate($_);
 
@@ -35,6 +36,10 @@ sub gpp_header {
   print $OUT 'GPP/PARI CALCULATOR - ';
   print $OUT $gpp->get_version(), "\n";
   print $OUT "\n";
+}
+
+sub update_prompt {
+  return strftime( "$prompt", localtime(time) );
 }
 
 #EOF

@@ -14,9 +14,8 @@ sub new {
   my $self = {
 	      'pari' => $opts{'pari'} || GPP::Pari->new( 'max_prime' => 500509),
 	      'prompt' => $opts{'prompt'} || '(gpp)? ',
+	      'stack' => $opts{'stack'} || GPP::Stack->new(),
 	      'histsize_cache' => 0,
-	      'scalar_mode' => $opts{'scalar_mode'} || 0,
-	      'stack' => GPP::Stack->new(),
 	     };
   bless $self, $class;
   return $self;
@@ -26,7 +25,6 @@ sub start {
   my $self = shift;
   $self->{'pari'}->init();
 }
-
 
 sub evaluate {
   my ( $self, $expr ) = @_;
@@ -117,12 +115,23 @@ sub get_version {
 }
 
 sub get_prompt {
-  my $self = shift;
+  my ( $self ) = @_;
   return $self->{'prompt'};
 }
 
+sub set_prompt {
+  my ( $self, $prompt ) = @_;
+  $self->{'prompt'} = "$prompt";
+  return $prompt;
+}
+
+sub get_stack {
+  my ( $self ) = @_;
+  return $self->{'stack'};
+}
+
 sub quit {
-  my $self = shift;
+  my ( $self ) = @_;
   print "bye!", "\n";
   $self->{'pari'}->quit();
   exit(0);
