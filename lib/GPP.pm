@@ -130,6 +130,16 @@ sub get_stack {
   return $self->{'stack'};
 }
 
+sub license {
+  my $license = join ( "\n",
+		       (
+			'PARI/GP is free software, covered by the GNU General Public License, and comes WITHOUT ANY WARRANTY WHATSOEVER',
+			'Copyright (C) 2000-2013 The PARI Group'
+		       )
+		     );
+  return $license;
+}
+
 sub quit {
   my ( $self ) = @_;
   print "bye!", "\n";
