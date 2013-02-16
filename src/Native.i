@@ -1,6 +1,7 @@
 /* parisrv.i */
 
-%module parisv
+%module "GPP::Pari::Native"
+
 %{
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +14,6 @@
   void quit(void);
   int parisv_nb_hist(void);
   char *parisv_type(const char *in);
-  /*  void gpp_escape(char *c); */
   %}
 
 #undef warner
@@ -23,4 +23,3 @@ char *evaluate(const char *in);
 void quit(void);
 int parisv_nb_hist(void);
 char *parisv_type(const char *in);
-/* void gpp_escape(char *c); */

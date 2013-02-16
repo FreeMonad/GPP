@@ -21,8 +21,6 @@
 use warnings;
 use strict;
 
-BEGIN { push @INC, './lib', './lib/GPP', '/usr/share/perl/5.10.1/Term'; }
-
 use GPP;
 use Term::ReadLine;
 use POSIX qw(strftime);

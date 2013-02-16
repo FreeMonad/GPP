@@ -4,7 +4,8 @@ package GPP::Pari;
 
 use warnings;
 use strict;
-use parisv;
+
+use GPP::Pari::Native;
 
 sub new {
   my $class = shift;
@@ -29,7 +30,7 @@ sub new {
 sub init {
   my ( $self ) = @_;
 
-  parisv::parisv_init();
+  GPP::Pari::Native::parisv_init();
 
   $self->{version} = $self->set_version($self->evaluate_cmd('version()'));
 
@@ -75,7 +76,7 @@ sub set_default {
 
 sub evaluate_cmd {
   my ( $self, $expression ) = @_;
-  my $result = parisv::evaluate("$expression");
+  my $result = GPP::Pari::Native::evaluate("$expression");
   return $result;
 }
 
@@ -86,18 +87,18 @@ sub escape_cmd {
 
 sub result_type {
   my ( $self, $expression ) = @_;
-  my $type = parisv::parisv_type("$expression");
+  my $type = GPP::Pari::Native::parisv_type("$expression");
   return $type;
 }
 
 sub history_size {
   my $self = shift;
-  return parisv::parisv_nb_hist();
+  return GPP::Pari::Native::parisv_nb_hist();
 }
 
 sub quit {
   my $self = shift;
-  parisv::quit();
+  GPP::Pari::Native::quit();
 }
 
 1;
