@@ -19,6 +19,16 @@ Example Session
      bye!
 
 Notes
-====
+=====
 
 Depends on libpari 2.6.0 or later being installed on the system - preferably compiled from source.
+
+At the very least, you will need to have the header files for Pari/GP installed on your system.
+
+Install
+=======
+
+ 1. perl Makefile.PL
+ 2. make
+ 3. sudo make install
+
