@@ -8,6 +8,8 @@ use strict;
 use GPP::Pari;
 use GPP::Stack;
 
+use version; our $VERSION = qv(0.1.5);
+
 sub new {
   my $class = shift;
   my %opts = @_;
