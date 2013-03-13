@@ -23,11 +23,20 @@ use strict;
 
 use GPP;
 use Term::ReadLine;
+use Getopt::Long;
 use POSIX qw(strftime);
 
-my $prompt = '[%H:%M] (gpp)? ';
+my ( $prime_limit, $disable_eval, $prompt, $print_version, $print_help ) = ( 500509, '', '[%H:%M] (gpp)? ', '', '' );
 
-my $gpp = GPP->new( 'prompt' => $prompt);
+GetOptions(
+	   'prime_limit=s' => \$prime_limit,
+	   'disable-eval' => \$disable_eval,
+	   'prompt=s'  => \$prompt,
+	   'version' => sub { print "GPP $GPP::VERSION","\n" ; exit(0); },
+	   'help'    => sub { help() ; exit(0); },
+	  );
+
+my $gpp = GPP->new( 'prompt' => $prompt, 'disable_eval' => $disable_eval, 'prime_limit' => $prime_limit );
 
 $gpp->start();
 
@@ -49,10 +58,14 @@ while ( defined ( $_ = $term->readline( update_prompt() ) ) ) {
 }
 
 sub gpp_header {
-  print $OUT 'GPP/PARI CALCULATOR - ';
+  print $OUT 'GPP/PARI CALCULATOR - ',"$GPP::VERSION","\n";
   print $OUT $gpp->license(), "\n";
   print $OUT $gpp->get_version(), "\n";
   print $OUT "\n";
+}
+
+sub help {
+  print 'not implemented',"\n";
 }
 
 sub update_prompt {
