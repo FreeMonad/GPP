@@ -14,7 +14,8 @@ sub new {
   my $class = shift;
   my %opts = @_;
   my $self = {
-	      'pari' => $opts{'pari'} || GPP::Pari->new( 'max_prime' => 500509),
+	      'disable_eval' => $opts{'disable_eval'} || 0,
+	      'pari' => $opts{'pari'} || GPP::Pari->new( 'max_prime' => $opts{'prime_limit'} ),
 	      'prompt' => $opts{'prompt'} || '(gpp)? ',
 	      'stack' => $opts{'stack'} || GPP::Stack->new(),
 	      'histsize_cache' => 0,
@@ -91,7 +92,7 @@ sub escape {
     return $self->{stack}->get_element($2);
   }
   elsif ( $expr =~ /^(\\)(e)(.*)/ ) {
-    return ( eval($3) );
+    return $self->{'disable_eval'} || ( eval($3) );
   }
   elsif ( $expr =~ /^(\\)(.*)/ ) {
     return $pari->escape_cmd("$1"."$2");

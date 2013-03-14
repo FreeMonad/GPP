@@ -3,8 +3,6 @@
 use warnings;
 use strict;
 
-BEGIN { push @INC, './lib', './lib/GPP'; }
-
 use GPP;
 use File::Spec;
 
