@@ -1,9 +1,6 @@
 *.o
 *.so
-lib/GPP/parisv.pm
-src/parisv.pm
 src/parisv_wrap.c
 Makefile.in
 Makefile.old
 src/Native.pm
-src/Native_wrap.c
