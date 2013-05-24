@@ -5,10 +5,17 @@ package GPP;
 use warnings;
 use strict;
 
+our $SIG_CAUGHT = '';
+
+BEGIN {
+    use sigtrap qw(handler shutdown normal-signals);
+    use sigtrap qw(die untrapped normal-signals stack-trace any error-signals);
+}
+
 use GPP::Pari;
 use GPP::Stack;
 
-use version; our $VERSION = qv(0.1.5);
+use version; our $VERSION = qv(0.1.6);
 
 sub new {
     my $class = shift;
@@ -26,7 +33,15 @@ sub new {
 
 sub start {
     my $self = shift;
-    $self->{'pari'}->init();
+
+    $self->{'paused'} = 0;
+
+    if ( defined($self->{'pari'}) ) {
+	$self->{'pari'}->init();
+    } else {
+	$self->{'pari'} = GPP::Pari->new();
+	$self->{'pari'}->init();
+    }
 }
 
 sub evaluate {
@@ -146,7 +161,7 @@ sub set_prompt {
 
 sub get_stack {
     my ( $self ) = @_;
-    return $self->{'stack'};
+    return $self->{'stack'}->{'stack'};
 }
 
 sub license {
@@ -161,8 +176,10 @@ sub license {
 
 sub pause {
     my ( $self ) = @_;
+
     if ( ! $self->{'paused'} ) {
 	$self->{'pari'}->quit();
+	$self->{'pari'} = undef;
 	$self->{'paused'} = 1;
 	return 'paused';
     }
@@ -171,11 +188,12 @@ sub pause {
 
 sub resume {
     my ( $self ) = @_;
+
     if ( $self->{'paused'} ) {
-	$self->{'pari'} = undef;
-	$self->{'pari'} = GPP::Pari->new();
-	$self->{'pari'}->init();
-	$self->{'paused'} = 0;
+	$self->start();
+	foreach my $stack_elt ( $self->get_stack() ) {
+	    $self->evaluate( $stack_elt->{'input'} );
+	}
 	return 'resumed';
     }
     return 0;
@@ -195,6 +213,20 @@ sub quit {
     print "bye!", "\n";
     $self->{'pari'}->quit();
     exit(0);
+}
+
+sub shutdown {
+    $SIG_CAUGHT = shift;
+}
+
+sub DESTROY {
+    my $self = shift;
+
+    if ( defined $SIG_CAUGHT ) {
+	print "caught signal: $SIG_CAUGHT","\n";
+    }
+
+    $self->quit();
 }
 
 1;
