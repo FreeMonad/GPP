@@ -1,26 +1,87 @@
-#!/usr/bin/env perl
-
 package GPP;
 
 use warnings;
 use strict;
+
+use Carp;
+use YAML::XS qw( Dump LoadFile);
 
 use GPP::Pari;
 use GPP::Stack;
 
 use version; our $VERSION = qv(0.1.5);
 
+our $AUTOLOAD;
+
+sub AUTOLOAD {
+    my $self = shift or return undef;
+
+    # Get the called method name and trim off the fully-qualified part
+    ( my $method = $AUTOLOAD ) =~ s{.*::}{};
+
+    if ( ! exists $self->{$method} ) {
+	print "loading method...: ","$method","\n";
+    }
+
+    ### Create a closure that will become the new accessor method
+    my $accessor = sub {
+	my $closure_self = shift;
+
+	if ( @_ ) {
+	    return $closure_self->evaluate( $method, @_);
+	}
+	return $closure_self->evaluate( $method );
+    };
+
+    # assign the closure to symbol table
+  SYMBOL_TABLE_HACK: {
+	no strict qw{refs};
+	*$AUTOLOAD = $accessor;
+    }
+
+    # Turn the call back into a method call by sticking the self-reference
+    # back onto the arglist
+    unshift @_, $self;
+
+    # Jump to the newly-created method with magic goto
+    goto &$AUTOLOAD;
+}
+
 sub new {
     my $class = shift;
     my %opts = @_;
+
+    my %pari_args = (
+	'prime_limit' => $opts{'prime_limit'} // 500509,
+    );
+
     my $self = {
-	'disable_eval' => $opts{'disable_eval'} || 0,
-	'pari' => $opts{'pari'} || GPP::Pari->new( 'max_prime' => $opts{'prime_limit'} ),
-	'prompt' => $opts{'prompt'} || '(gpp)? ',
-	'stack' => $opts{'stack'} || GPP::Stack->new(),
-	'histsize_cache' => 0,
+	'pari'     => GPP::Pari->new( %pari_args ),
+	'prompt'   => $opts{'prompt'} // '(gpp)? ',
+	'funclist' => $opts{'funclist'} // [ 'factor', 'primes' ],
     };
+
+    $self->{'stack'} = GPP::Stack->new();
+    $self->{'histsize_cache'} = 0;
     bless $self, $class;
+
+    foreach my $method ( @{ $self->{'funclist'} } ) {
+	my $f = sub {
+	    my $closure_self = shift;
+
+	    if ( @_ ) {
+		return $closure_self->evaluate( $method, @_ );
+	    }
+	    return $closure_self->evaluate( $method );
+	};
+
+      SYMBOL_TABLE_INSERT: {
+	    no strict qw{refs};
+	    *$method = $f;
+	}
+	print 'created method ',"$method","\n";
+	$self = bless($self);
+    }
     return $self;
 }
 
@@ -30,47 +91,46 @@ sub start {
 }
 
 sub evaluate {
-    my ( $self, $expr ) = @_;
+    my ( $self, $cmd, @args ) = @_;
 
-    chomp( $expr );
+    chomp( $cmd );
 
-    my( $pari, $stack ) = ( $self->{'pari'}, $self->{stack} );
-
-    my $histsize_cache = $self->history_size();
-
-    my $result = { };
-
-    if ( $expr =~ /quit\(\)/ || $expr =~ /quit/ ) {
-	$self->quit();
-    } elsif ( $expr =~ /(\?{1,2})([a-z]+)/g ) {
-	my $help = 'help(' . "$2" . ')';
-	$result->{input} = "$help";
-	$result->{output} = $pari->evaluate_cmd($help);
-	$result->{type} = '_HELP_';
-    } elsif ( $expr =~ /version\(\)/ ) {
-	$result->{input} = "$expr";
-	$result->{output} = $self->get_version();
-	$result->{type} = 't_STR';
-    } elsif ( $expr =~ /^\\.*/ ) {
-	$result->{input} = "$expr";
-	$result->{output} = $self->escape("$expr");
-	$result->{type} = '_META_';
-    } else {
-	$result->{input} = "$expr";
-	$result->{output} = $pari->evaluate_cmd($expr);
-	$result->{type} = $pari->result_type($expr);
+    if ( @args ) {
+	$cmd .= '(' . join( ',', @args ) . ')';
     }
 
-    my $histsize = $self->history_size();
+    $self->{'histsize_cache'} = $self->history_size();
 
-    unless ( $histsize <= $histsize_cache ) {
-	$result->{history} = $histsize;
+    if ( $cmd =~ /^(\?)(.*)/ ) {
+	my $func = $2;
+	my $help_cmd = {
+	    'input'  => $cmd,
+	    'output' => $self->help($func),
+	    'type'   => 't_HELP',
+	};
+	return $self->add_history($help_cmd);
+    } elsif ( $cmd =~ /version/ ) {
+	my $version_cmd = {
+	    'input'  => $cmd,
+	    'output' => $self->get_version(),
+	    'type'   => 't_STR',
+	};
+	return $self->add_history($version_cmd);
+    } elsif ( $cmd =~ /^\\.*/ ) {
+	my $meta_cmd = {
+	    'input'  => $cmd,
+	    'output' => $self->escape($cmd),
+	    'type'   => 'META',
+	};
+	return $self->add_history($meta_cmd);
     } else {
-	$result->{history} = '';
+	my $pari_cmd = {
+	    'input'  => $cmd,
+	    'output' => $self->{'pari'}->evaluate_cmd($cmd),
+	    'type'   => $self->{'pari'}->result_type($cmd),
+	};
+	return $self->add_history($pari_cmd);
     }
-
-    $stack->push_stack($result);
-    return $result;
 }
 
 sub escape {
@@ -79,18 +139,34 @@ sub escape {
     my $pari = $self->{'pari'};
 
     if ( $expr =~ /^(\\)(q)/ ) {
-	$self->quit();
+	return $self->quit();
     } elsif ( $expr =~ /^(\\)(v)/ ) {
 	return $self->get_version();
-    } elsif ( $expr =~ /^(\\)(s)(\d+)/ ) {
-	return $self->{stack}->get_element($2);
-    } elsif ( $expr =~ /^(\\)(e)(.*)/ ) {
-	return $self->{'disable_eval'} || ( eval($3) );
     } elsif ( $expr =~ /^(\\)(.*)/ ) {
 	return $pari->escape_cmd("$1"."$2");
     } else {
-	return "";
+	return undef;
     }
+}
+
+sub add_history {
+    my ( $self, $result ) = @_;
+
+    my $histsize = $self->history_size();
+
+    unless ( $histsize <= $self->{'histsize_cache'} ) {
+	$result->{history} = $histsize;
+    } else {
+	$result->{history} = '';
+    }
+    $self->{'stack'}->push_stack($result);
+    return $result->{'output'};
+}
+
+sub help {
+    my ( $self, $func ) = @_;
+    my $cmd = 'help(\$func)';
+    return $self->{'pari'}->evaluate_cmd($cmd);
 }
 
 sub history_size {
@@ -138,7 +214,11 @@ sub quit {
     my ( $self ) = @_;
     print "bye!", "\n";
     $self->{'pari'}->quit();
-    exit(0);
+}
+
+sub DESTROY {
+    my ( $self ) = @_;
+    $self->{'pari'} = undef;
 }
 
 1;

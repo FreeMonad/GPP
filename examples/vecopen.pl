@@ -5,27 +5,21 @@ use strict;
 
 use GPP;
 
-my $prompt = '(gpp)? ';
-
-my $gpp = GPP->new( 'prompt' => $prompt );
+my $gpp = GPP->new( 'funclist' => [ 'bnfinit' ], );
 
 $gpp->start();
 
-evaluate('default(output,0)');
+$gpp->default('output','0');
 
-my $bnf = evaluate('bnfinit(x^3-2)');
-my @bnf_matrix = open_parimat($bnf);
-print_matrix(@bnf_matrix);
+my $bnf = $gpp->bnfinit('x^3-2');
+
+print_matrix( open_parimat($bnf) );
 
 $gpp->quit();
 
-sub evaluate {
-  my ( $cmd ) = @_;
-  return $gpp->evaluate("$cmd")->{output};
-}
-
 sub open_parivec {
   my $vec = shift;
+
   $vec =~ s/(\[)(\w+)/$2/;
   $vec =~ s/(\w+)(\])/$1/;
   $vec =~ s/(\s+)(',')(\s+)/$2/;

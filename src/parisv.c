@@ -57,7 +57,6 @@ static PariOUT svOut = {svOutC, svOutS, svOutF};
 void 
 quit(long exitcode) 
 {
-  pari_printf("Bye!");
   pari_close();
 }
 

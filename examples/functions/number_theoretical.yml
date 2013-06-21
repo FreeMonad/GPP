@@ -1,0 +1,348 @@
+---
+gp_args: DG
+id: addprimes
+prototype: addprimes({x=[]})
+---
+gp_args: GDG
+id: bestappr
+prototype: bestappr(x, {B})
+---
+gp_args: GD
+id: bestapprPade
+prototype: bestappr(x, {B})
+---
+gp_args: GG
+id: bezout
+prototype: bezout(x,y)
+---
+gp_args: GG
+id: bezoutres
+prototype: bezoutres(x,y)
+---
+gp_args: lG
+id: bigomega
+prototype: bigomega(x)
+---
+gp_args: GL
+id: binomial
+prototype: binomial(x,y)
+---
+gp_args: GDG
+id: chinese
+prototype: chinese(x,{y})
+---
+gp_args: G
+id: content
+prototype: content(x)
+---
+gp_args: GDGD0
+id: contfrac
+prototype: contfrac(x,{b},{nmax})
+---
+gp_args: GD
+id: contfracpnqn
+prototype: contfracpnqn(x, {n=-1})
+---
+gp_args: GD0
+id: core
+prototype: core(n,{flag=0})
+---
+gp_args: GD0
+id: coredisc
+prototype: coredisc(n,{flag=0})
+---
+gp_args: GG
+id: dirdiv
+prototype: dirdiv(x,y)
+---
+gp_args: V
+id: direuler
+prototype: direuler(p=a,b,expr,{c})
+---
+gp_args: GG
+id: dirmul
+prototype: dirmul(x,y)
+---
+gp_args: G
+id: divisors
+prototype: divisors(x)
+---
+gp_args: G
+id: eulerphi
+prototype: eulerphi(x)
+---
+gp_args: GL
+id: _factor_Aurifeuille_prime
+prototype: _factor_Aurifeuille_prime(p,d)
+---
+gp_args: GDG
+id: factorback
+prototype: factorback(f,{e})
+---
+gp_args: GG
+id: factorcantor
+prototype: factorcantor(x,p)
+---
+gp_args: GDGDG
+id: factorff
+prototype: factorff(x,{p},{a})
+---
+gp_args: Lp
+id: factorial
+prototype: factorial(x)
+---
+gp_args: GD0
+id: factorint
+prototype: factorint(x,{flag=0})
+---
+gp_args: GGD0
+id: factormod
+prototype: factormod(x,p,{flag=0})
+---
+gp_args: GDn
+id: ffgen
+prototype: ffgen(P,{v})
+---
+gp_args: GLDn
+id: ffinit
+prototype: ffinit(p,n,{v='x})
+---
+gp_args: GGDG
+id: fflog
+prototype: fflog(x,g,{o})
+---
+gp_args: GLD0
+id: ffnbirred
+prototype: ffnbirred(q,n{,fl=0})
+---
+gp_args: GDG
+id: fforder
+prototype: fforder(x,{o})
+---
+gp_args: GD
+id: ffprimroot
+prototype: ffprimroot(x, {&o})
+---
+gp_args: L
+id: fibonacci
+prototype: fibonacci(x)
+---
+gp_args: GDG
+id: gcd
+prototype: gcd(x,{y})
+---
+gp_args: lGGDG
+id: hilbert
+prototype: hilbert(x,y,{p})
+---
+gp_args: lG
+id: isfundamental
+prototype: isfundamental(x)
+---
+gp_args: lGGD
+id: ispolygonal
+prototype: ispolygonal(x,s,{&N})
+---
+gp_args: lGDGD
+id: ispower
+prototype: ispower(x,{k},{&n})
+---
+gp_args: lG
+id: ispowerful
+prototype: ispowerful(x)
+---
+gp_args: GD0
+id: isprime
+prototype: isprime(x,{flag=0})
+---
+gp_args: lGD
+id: isprimepower
+prototype: isprimepower(x,{&n})
+---
+gp_args: GD0
+id: ispseudoprime
+prototype: ispseudoprime(x,{flag})
+---
+gp_args: lGD
+id: issquare
+prototype: issquare(x,{&n})
+---
+gp_args: lG
+id: issquarefree
+prototype: issquarefree(x)
+---
+gp_args: lGD
+id: istotient
+prototype: istotient(x,{&N})
+---
+gp_args: lGG
+id: kronecker
+prototype: kronecker(x,y)
+---
+gp_args: GDG
+id: lcm
+prototype: lcm(x,{y})
+---
+gp_args: lG
+id: moebius
+prototype: moebius(x)
+---
+gp_args: G
+id: nextprime
+prototype: nextprime(x)
+---
+gp_args: G
+id: numbpart
+prototype: numbpart(n)
+---
+gp_args: G
+id: numdiv
+prototype: numdiv(x)
+---
+gp_args: lG
+id: omega
+prototype: omega(x)
+---
+gp_args: LD0
+id: partitions
+prototype: partitions(n,{restr=0})
+---
+gp_args: GDGDG
+id: polrootsff
+prototype: polrootsff(x,{p},{a})
+---
+gp_args: G
+id: precprime
+prototype: precprime(x)
+---
+gp_args: L
+id: prime
+prototype: prime(n)
+---
+gp_args: G
+id: primepi
+prototype: primepi(x)
+---
+gp_args: L
+id: primes
+prototype: primes(x)
+---
+gp_args: GD0
+id: qfbclassno
+prototype: qfbclassno(D,{flag=0})
+---
+gp_args: GG
+id: qfbcompraw
+prototype: qfbcompraw(x,y)
+---
+gp_args: G
+id: qfbhclassno
+prototype: qfbhclassno(x)
+---
+gp_args: GGG
+id: qfbnucomp
+prototype: qfbnucomp(x,y,L)
+---
+gp_args: GG
+id: qfbnupow
+prototype: qfbnupow(x,n)
+---
+gp_args: GL
+id: qfbpowraw
+prototype: qfbpowraw(x,n)
+---
+gp_args: GGp
+id: qfbprimeform
+prototype: qfbprimeform(x,p)
+---
+gp_args: GD0
+id: qfbred
+prototype: qfbred(x,{flag=0},{d},{isd},{sd})
+---
+gp_args: GG
+id: qfbsolve
+prototype: qfbsolve(Q,p)
+---
+gp_args: GD0
+id: quadclassunit
+prototype: quadclassunit(D,{flag=0},{tech=[]})
+---
+gp_args: G
+id: quaddisc
+prototype: quaddisc(x)
+---
+gp_args: G
+id: quadgen
+prototype: quadgen(D)
+---
+gp_args: Gp
+id: quadhilbert
+prototype: quadhilbert(D)
+---
+gp_args: GDn
+id: quadpoly
+prototype: quadpoly(D,{v='x})
+---
+gp_args: GGp
+id: quadray
+prototype: quadray(D,f)
+---
+gp_args: Gp
+id: quadregulator
+prototype: quadregulator(x)
+---
+gp_args: G
+id: quadunit
+prototype: quadunit(D)
+---
+gp_args: DG
+id: randomprime
+prototype: randomprime({N = 2^31})
+---
+gp_args: DG
+id: removeprimes
+prototype: removeprimes({x=[]})
+---
+gp_args: GD1
+id: sigma
+prototype: sigma(x,{k=1})
+---
+gp_args: G
+id: sqrtint
+prototype: sqrtint(x)
+---
+gp_args: GL
+id: sqrtnint
+prototype: sqrtnint(x,n)
+---
+gp_args: LLD1
+id: stirling
+prototype: stirling(n,k,{flag=1})
+---
+gp_args: GG
+id: sumdedekind
+prototype: sumdedekind(h,k)
+---
+gp_args: G
+id: sumdigits
+prototype: sumdigits(n)
+---
+gp_args: GGGDG
+id: zncoppersmith
+prototype: zncoppersmith(P, N, X, {B=N})
+---
+gp_args: GGDG
+id: znlog
+prototype: znlog(x,g,{o})
+---
+gp_args: GDG
+id: znorder
+prototype: znorder(x,{o})
+---
+gp_args: G
+id: znprimroot
+prototype: znprimroot(n)
+---
+gp_args: G
+id: znstar
+prototype: znstar(n)

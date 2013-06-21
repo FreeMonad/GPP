@@ -11,10 +11,10 @@ sub new {
   my $class = shift;
   my %opts = @_;
 
-  my $pari_size = $opts{'pari_size'} || undef;
-  my $max_prime = $opts{'max_prime'} || undef;
-  my $real_precision = $opts{'real_precision'} || undef;
-  my $series_precision = $opts{'series_precision'} || undef;
+  my $pari_size = $opts{'pari_size'} // undef;
+  my $max_prime = $opts{'prime_limit'} // undef;
+  my $real_precision = $opts{'real_precision'} // undef;
+  my $series_precision = $opts{'series_precision'} // undef;
 
   my $self = {
 	      'pari_size' => $pari_size,

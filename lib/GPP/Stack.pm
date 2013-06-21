@@ -36,6 +36,12 @@ sub pop_stack {
   $self->{size} = $size - 1;
 }
 
+sub peek {
+    my ( $self ) = @_;
+    my $size = $self->get_size();
+    return $self->{'stack'}->[$size - 1];
+}
+
 sub get_element {
   my ( $self, $index ) = @_;
   my $size = $self->get_size();
@@ -46,5 +52,7 @@ sub get_element {
     return 0;
   }
 }
+
+
 
 1;

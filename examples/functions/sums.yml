@@ -1,0 +1,108 @@
+---
+gp_args: GGp
+id: _derivfun
+prototype: _derivfun(closure,[args])
+---
+gp_args: V
+id: intcirc
+prototype: intcirc(X=a,R,expr,{tab})
+---
+gp_args: V
+id: intfouriercos
+prototype: intfouriercos(X=a,b,z,expr,{tab})
+---
+gp_args: V
+id: intfourierexp
+prototype: intfourierexp(X=a,b,z,expr,{tab})
+---
+gp_args: V
+id: intfouriersin
+prototype: intfouriersin(X=a,b,z,expr,{tab})
+---
+gp_args: V
+id: intfuncinit
+prototype: intfuncinit(X=a,b,expr,{flag=0},{m=0})
+---
+gp_args: V
+id: intlaplaceinv
+prototype: intlaplaceinv(X=sig,z,expr,{tab})
+---
+gp_args: V
+id: intmellininv
+prototype: intmellininv(X=sig,z,expr,{tab})
+---
+gp_args: GGGp
+id: intmellininvshort
+prototype: intmellininvshort(sig,z,tab)
+---
+gp_args: V
+id: intnum
+prototype: intnum(X=a,b,expr,{tab})
+---
+gp_args: GGD0
+id: intnuminit
+prototype: intnuminit(a,b,{m=0})
+---
+gp_args: VGGED0
+id: intnuminitgen
+prototype: intnuminitgen(t,a,b,ph,{m=0},{flag=0})
+---
+gp_args: V
+id: intnumromb
+prototype: intnumromb(X=a,b,expr,{flag=0})
+---
+gp_args: lp
+id: intnumstep
+prototype: intnumstep()
+---
+gp_args: V
+id: prod
+prototype: prod(X=a,b,expr,{x=1})
+---
+gp_args: V
+id: prodeuler
+prototype: prodeuler(X=a,b,expr)
+---
+gp_args: V
+id: prodinf
+prototype: prodinf(X=a,expr,{flag=0})
+---
+gp_args: V
+id: solve
+prototype: solve(X=a,b,expr)
+---
+gp_args: V
+id: sum
+prototype: sum(X=a,b,expr,{x=0})
+---
+gp_args: V
+id: sumalt
+prototype: sumalt(X=a,expr,{flag=0})
+---
+gp_args: GVE
+id: sumdiv
+prototype: sumdiv(n,X,expr)
+---
+gp_args: GVE
+id: sumdivmult
+prototype: sumdivmult(n,d,expr)
+---
+gp_args: V
+id: suminf
+prototype: suminf(X=a,expr)
+---
+gp_args: V
+id: sumnum
+prototype: sumnum(X=a,sig,expr,{tab},{flag=0})
+---
+gp_args: V
+id: sumnumalt
+prototype: sumnumalt(X=a,sig,expr,{tab},{flag=0})
+---
+gp_args: GD0
+id: sumnuminit
+prototype: sumnuminit(sig, {m=0}, {sgn=1})
+---
+gp_args: V
+id: sumpos
+prototype: sumpos(X=a,expr,{flag=0})

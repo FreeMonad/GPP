@@ -4,7 +4,6 @@ use warnings;
 use strict;
 
 use GPP;
-use File::Spec;
 
 my $pari = GPP->new();
 
@@ -25,20 +24,9 @@ sub init_curves {
     print "-"x50,"\n";
     print "\t",'ellinit('."$arg".')',"\n";
     print "-"x50,"\n";
-    my $ell = ellinit($arg);
+    my $ell = $pari->ellinit($arg);
     print "$ell","\n";
     $count++;
   }
   print "-"x50,"\n";
-}
-
-sub evaluate {
-  my ( $cmd ) = @_;
-  return $pari->evaluate("$cmd")->{output};
-}
-
-sub ellinit {
- my ( $params ) = @_;
- my $cmd = 'ellinit' . '(' . "$params" . ')';
- return evaluate($cmd);
 }

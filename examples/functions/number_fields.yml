@@ -1,0 +1,608 @@
+---
+gp_args: lGD0
+id: bnfcertify
+prototype: bnfcertify(bnf,{flag = 0})
+---
+gp_args: G
+id: bnfcompress
+prototype: bnfcompress(bnf)
+---
+gp_args: GG
+id: bnfdecodemodule
+prototype: bnfdecodemodule(nf,m)
+---
+gp_args: GD0
+id: bnfinit
+prototype: bnfinit(P,{flag=0},{tech=[]})
+---
+gp_args: GG
+id: bnfisintnorm
+prototype: bnfisintnorm(bnf,x)
+---
+gp_args: GGD1
+id: bnfisnorm
+prototype: bnfisnorm(bnf,x,{flag=1})
+---
+gp_args: GGD1
+id: bnfisprincipal
+prototype: bnfisprincipal(bnf,x,{flag=1})
+---
+gp_args: GGG
+id: bnfissunit
+prototype: bnfissunit(bnf,sfu,x)
+---
+gp_args: GG
+id: bnfisunit
+prototype: bnfisunit(bnf,x)
+---
+gp_args: G
+id: bnfnarrow
+prototype: bnfnarrow(bnf)
+---
+gp_args: G
+id: bnfsignunit
+prototype: bnfsignunit(bnf)
+---
+gp_args: GGp
+id: bnfsunit
+prototype: bnfsunit(bnf,S)
+---
+gp_args: GG
+id: bnrclassno
+prototype: bnrclassno(bnf,I)
+---
+gp_args: GG
+id: bnrclassnolist
+prototype: bnrclassnolist(bnf,list)
+---
+gp_args: GDGDGD0
+id: bnrconductor
+prototype: bnrconductor(A,{B},{C},{flag=0})
+---
+gp_args: GG
+id: bnrconductorofchar
+prototype: bnrconductorofchar(bnr,chi)
+---
+gp_args: GDGDGD0
+id: bnrdisc
+prototype: bnrdisc(A,{B},{C},{flag=0})
+---
+gp_args: GGDG
+id: bnrdisclist
+prototype: bnrdisclist(bnf,bound,{arch})
+---
+gp_args: GGD0
+id: bnrinit
+prototype: bnrinit(bnf,f,{flag=0})
+---
+gp_args: lGDGDG
+id: bnrisconductor
+prototype: bnrisconductor(A,{B},{C})
+---
+gp_args: GGD1
+id: bnrisprincipal
+prototype: bnrisprincipal(bnr,x,{flag=1})
+---
+gp_args: GDGD0
+id: bnrL1
+prototype: bnrL1(bnr, {H}, {flag=0})
+---
+gp_args: GGD0
+id: bnrrootnumber
+prototype: bnrrootnumber(bnr,chi,{flag=0})
+---
+gp_args: GDGp
+id: bnrstark
+prototype: bnrstark(bnr,{subgroup})
+---
+gp_args: GG
+id: dirzetak
+prototype: dirzetak(nf,b)
+---
+gp_args: GG
+id: factornf
+prototype: factornf(x,t)
+---
+gp_args: GD0
+id: galoisexport
+prototype: galoisexport(gal,{flag})
+---
+gp_args: GGD0
+id: galoisfixedfield
+prototype: galoisfixedfield(gal,perm,{flag},{v=y})
+---
+gp_args: LD0
+id: galoisgetpol
+prototype: galoisgetpol(a,{b},{s})
+---
+gp_args: G
+id: galoisidentify
+prototype: galoisidentify(gal)
+---
+gp_args: GDG
+id: galoisinit
+prototype: galoisinit(pol,{den})
+---
+gp_args: GD0
+id: galoisisabelian
+prototype: galoisisabelian(gal,{flag=0})
+---
+gp_args: lGG
+id: galoisisnormal
+prototype: galoisisnormal(gal,subgrp)
+---
+gp_args: GG
+id: galoispermtopol
+prototype: galoispermtopol(gal,perm)
+---
+gp_args: GDGD0
+id: galoissubcyclo
+prototype: galoissubcyclo(N,H,{fl=0},{v})
+---
+gp_args: GD0
+id: galoissubfields
+prototype: galoissubfields(G,{flags=0},{v})
+---
+gp_args: G
+id: galoissubgroups
+prototype: galoissubgroups(G)
+---
+gp_args: GGG
+id: idealadd
+prototype: idealadd(nf,x,y)
+---
+gp_args: GGDG
+id: idealaddtoone
+prototype: idealaddtoone(nf,x,{y})
+---
+gp_args: GGD0
+id: idealappr
+prototype: idealappr(nf,x,{flag=0})
+---
+gp_args: GGG
+id: idealchinese
+prototype: idealchinese(nf,x,y)
+---
+gp_args: GGG
+id: idealcoprime
+prototype: idealcoprime(nf,x,y)
+---
+gp_args: GGGD0
+id: idealdiv
+prototype: idealdiv(nf,x,y,{flag=0})
+---
+gp_args: GG
+id: idealfactor
+prototype: idealfactor(nf,x)
+---
+gp_args: GGDGD0
+id: idealfactorback
+prototype: idealfactorback(nf,f,{e},{flag = 0})
+---
+gp_args: GGG
+id: idealfrobenius
+prototype: idealfrobenius(nf,gal,pr)
+---
+gp_args: GGDG
+id: idealhnf
+prototype: idealhnf(nf,u,{v})
+---
+gp_args: GGG
+id: idealintersect
+prototype: idealintersect(nf,A,B)
+---
+gp_args: GG
+id: idealinv
+prototype: idealinv(nf,x)
+---
+gp_args: GLD4
+id: ideallist
+prototype: ideallist(nf,bound,{flag=4})
+---
+gp_args: GGG
+id: ideallistarch
+prototype: ideallistarch(nf,list,arch)
+---
+gp_args: GGG
+id: ideallog
+prototype: ideallog(nf,x,bid)
+---
+gp_args: GGDG
+id: idealmin
+prototype: idealmin(nf,ix,{vdir})
+---
+gp_args: GGGD0
+id: idealmul
+prototype: idealmul(nf,x,y,{flag=0})
+---
+gp_args: GG
+id: idealnorm
+prototype: idealnorm(nf,x)
+---
+gp_args: GG
+id: idealnumden
+prototype: idealnumden(nf,x)
+---
+gp_args: GGGD0
+id: idealpow
+prototype: idealpow(nf,x,k,{flag=0})
+---
+gp_args: GG
+id: idealprimedec
+prototype: idealprimedec(nf,p)
+---
+gp_args: GGG
+id: idealramgroups
+prototype: idealramgroups(nf,gal,pr)
+---
+gp_args: GGDG
+id: idealred
+prototype: idealred(nf,I,{v=0})
+---
+gp_args: GGD1
+id: idealstar
+prototype: idealstar(nf,I,{flag=1})
+---
+gp_args: GGDG
+id: idealtwoelt
+prototype: idealtwoelt(nf,x,{a})
+---
+gp_args: lGGG
+id: idealval
+prototype: idealval(nf,x,pr)
+---
+gp_args: GG
+id: matalgtobasis
+prototype: matalgtobasis(nf,x)
+---
+gp_args: GG
+id: matbasistoalg
+prototype: matbasistoalg(nf,x)
+---
+gp_args: G
+id: modreverse
+prototype: modreverse(z)
+---
+gp_args: GG
+id: newtonpoly
+prototype: newtonpoly(x,p)
+---
+gp_args: GG
+id: nfalgtobasis
+prototype: nfalgtobasis(nf,x)
+---
+gp_args: GD0
+id: nfbasis
+prototype: nfbasis(T,{flag=0},{fa})
+---
+gp_args: GG
+id: nfbasistoalg
+prototype: nfbasistoalg(nf,x)
+---
+gp_args: GG
+id: nfdetint
+prototype: nfdetint(nf,x)
+---
+gp_args: GD0
+id: nfdisc
+prototype: nfdisc(T,{flag=0},{fa})
+---
+gp_args: GGG
+id: nfeltadd
+prototype: nfadd(nf,x,y)
+---
+gp_args: GGG
+id: nfeltdiv
+prototype: nfdiv(nf,x,y)
+---
+gp_args: GGG
+id: nfeltdiveuc
+prototype: nfdiveuc(nf,x,y)
+---
+gp_args: GGGG
+id: nfeltdivmodpr
+prototype: nfeltdivmodpr(nf,x,y,pr)
+---
+gp_args: GGG
+id: nfeltdivrem
+prototype: nfeltdivrem(nf,x,y)
+---
+gp_args: GGG
+id: nfeltmod
+prototype: nfeltmod(nf,x,y)
+---
+gp_args: GGG
+id: nfeltmul
+prototype: nfmul(nf,x,y)
+---
+gp_args: GGGG
+id: nfeltmulmodpr
+prototype: nfeltmulmodpr(nf,x,y,pr)
+---
+gp_args: GG
+id: nfeltnorm
+prototype: nfeltnorm(nf,x)
+---
+gp_args: GGG
+id: nfeltpow
+prototype: nfeltpow(nf,x,k)
+---
+gp_args: GGGG
+id: nfeltpowmodpr
+prototype: nfeltpowmodpr(nf,x,k,pr)
+---
+gp_args: GGG
+id: nfeltreduce
+prototype: nfeltreduce(nf,a,id)
+---
+gp_args: GGG
+id: nfeltreducemodpr
+prototype: nfeltreducemodpr(nf,x,pr)
+---
+gp_args: GG
+id: nfelttrace
+prototype: nfelttrace(nf,x)
+---
+gp_args: lGGG
+id: nfeltval
+prototype: nfeltval(nf,x,pr)
+---
+gp_args: GG
+id: nffactor
+prototype: nffactor(nf,T)
+---
+gp_args: GGDG
+id: nffactorback
+prototype: nffactorback(nf,f,{e})
+---
+gp_args: GGG
+id: nffactormod
+prototype: nffactormod(nf,pol,pr)
+---
+gp_args: GGG
+id: nfgaloisapply
+prototype: nfgaloisapply(nf,aut,x)
+---
+gp_args: GD0
+id: nfgaloisconj
+prototype: nfgaloisconj(nf,{flag=0},{d})
+---
+gp_args: lGGGDG
+id: nfhilbert
+prototype: nfhilbert(nf,a,b,{pr})
+---
+gp_args: GG
+id: nfhnf
+prototype: nfhnf(nf,x)
+---
+gp_args: GGG
+id: nfhnfmod
+prototype: nfhnfmod(nf,x,detx)
+---
+gp_args: GD0
+id: nfinit
+prototype: nfinit(pol,{flag=0})
+---
+gp_args: lGG
+id: nfisideal
+prototype: nfisideal(nf,x)
+---
+gp_args: GG
+id: nfisincl
+prototype: nfisincl(x,y)
+---
+gp_args: GG
+id: nfisisom
+prototype: nfisisom(x,y)
+---
+gp_args: GGG
+id: nfkermodpr
+prototype: nfkermodpr(nf,x,pr)
+---
+gp_args: GG
+id: nfmodprinit
+prototype: nfmodprinit(nf,pr)
+---
+gp_args: Gp
+id: nfnewprec
+prototype: nfnewprec(nf)
+---
+gp_args: DGG
+id: nfroots
+prototype: nfroots({nf},x)
+---
+gp_args: G
+id: nfrootsof1
+prototype: nfrootsof1(nf)
+---
+gp_args: GG
+id: nfsnf
+prototype: nfsnf(nf,x)
+---
+gp_args: GGGG
+id: nfsolvemodpr
+prototype: nfsolvemodpr(nf,a,b,pr)
+---
+gp_args: GD0
+id: nfsubfields
+prototype: nfsubfields(pol,{d=0})
+---
+gp_args: GGD0
+id: polcompositum
+prototype: polcompositum(P,Q,{flag=0})
+---
+gp_args: Gp
+id: polgalois
+prototype: polgalois(T)
+---
+gp_args: GD0
+id: polred
+prototype: polred(x,{flag=0},{fa})
+---
+gp_args: GD0
+id: polredabs
+prototype: polredabs(T,{flag=0})
+---
+gp_args: GD0
+id: polredbest
+prototype: polredbest(T,{flag=0})
+---
+gp_args: G
+id: polredord
+prototype: polredord(x)
+---
+gp_args: G
+id: poltschirnhaus
+prototype: poltschirnhaus(x)
+---
+gp_args: GG
+id: rnfalgtobasis
+prototype: rnfalgtobasis(rnf,x)
+---
+gp_args: GG
+id: rnfbasis
+prototype: rnfbasis(bnf,M)
+---
+gp_args: GG
+id: rnfbasistoalg
+prototype: rnfbasistoalg(rnf,x)
+---
+gp_args: GGGDn
+id: rnfcharpoly
+prototype: rnfcharpoly(nf,T,a,{var='x})
+---
+gp_args: GG
+id: rnfconductor
+prototype: rnfconductor(bnf,pol)
+---
+gp_args: GGDGD0
+id: rnfdedekind
+prototype: rnfdedekind(nf,pol,{pr},{flag=0})
+---
+gp_args: GG
+id: rnfdet
+prototype: rnfdet(nf,M)
+---
+gp_args: GG
+id: rnfdisc
+prototype: rnfdisc(nf,pol)
+---
+gp_args: GG
+id: rnfeltabstorel
+prototype: rnfeltabstorel(rnf,x)
+---
+gp_args: GG
+id: rnfeltdown
+prototype: rnfeltdown(rnf,x)
+---
+gp_args: GG
+id: rnfeltreltoabs
+prototype: rnfeltreltoabs(rnf,x)
+---
+gp_args: GG
+id: rnfeltup
+prototype: rnfeltup(rnf,x)
+---
+gp_args: GGD0
+id: rnfequation
+prototype: rnfequation(nf,pol,{flag=0})
+---
+gp_args: GG
+id: rnfhnfbasis
+prototype: rnfhnfbasis(bnf,x)
+---
+gp_args: GG
+id: rnfidealabstorel
+prototype: rnfidealabstorel(rnf,x)
+---
+gp_args: GG
+id: rnfidealdown
+prototype: rnfidealdown(rnf,x)
+---
+gp_args: GG
+id: rnfidealhnf
+prototype: rnfidealhnf(rnf,x)
+---
+gp_args: GGG
+id: rnfidealmul
+prototype: rnfidealmul(rnf,x,y)
+---
+gp_args: GG
+id: rnfidealnormabs
+prototype: rnfidealnormabs(rnf,x)
+---
+gp_args: GG
+id: rnfidealnormrel
+prototype: rnfidealnormrel(rnf,x)
+---
+gp_args: GG
+id: rnfidealreltoabs
+prototype: rnfidealreltoabs(rnf,x)
+---
+gp_args: GG
+id: rnfidealtwoelt
+prototype: rnfidealtwoelt(rnf,x)
+---
+gp_args: GG
+id: rnfidealup
+prototype: rnfidealup(rnf,x)
+---
+gp_args: GG
+id: rnfinit
+prototype: rnfinit(nf,pol)
+---
+gp_args: lGG
+id: rnfisabelian
+prototype: rnfisabelian(nf,T)
+---
+gp_args: lGG
+id: rnfisfree
+prototype: rnfisfree(bnf,x)
+---
+gp_args: GGD0
+id: rnfisnorm
+prototype: rnfisnorm(T,a,{flag=0})
+---
+gp_args: GGD2
+id: rnfisnorminit
+prototype: rnfisnorminit(pol,polrel,{flag=2})
+---
+gp_args: GDGD0
+id: rnfkummer
+prototype: rnfkummer(bnr,{subgp},{d=0})
+---
+gp_args: GGGp
+id: rnflllgram
+prototype: rnflllgram(nf,pol,order)
+---
+gp_args: GG
+id: rnfnormgroup
+prototype: rnfnormgroup(bnr,pol)
+---
+gp_args: GGp
+id: rnfpolred
+prototype: rnfpolred(nf,pol)
+---
+gp_args: GGD0
+id: rnfpolredabs
+prototype: rnfpolredabs(nf,pol,{flag=0})
+---
+gp_args: GG
+id: rnfpseudobasis
+prototype: rnfpseudobasis(nf,pol)
+---
+gp_args: GG
+id: rnfsteinitz
+prototype: rnfsteinitz(nf,x)
+---
+gp_args: GDGD0
+id: subgrouplist
+prototype: subgrouplist(bnr,{bound},{flag=0})
+---
+gp_args: GGD0
+id: zetak
+prototype: zetak(nfz,x,{flag=0})
+---
+gp_args: Gp
+id: zetakinit
+prototype: zetakinit(bnf)

@@ -1,0 +1,207 @@
+---
+gp_args: Gp
+id: abs
+prototype: abs(x)
+---
+gp_args: Gp
+id: acos
+prototype: acos(x)
+---
+gp_args: Gp
+id: acosh
+prototype: acosh(x)
+---
+gp_args: GGp
+id: agm
+prototype: agm(x,y)
+---
+gp_args: Gp
+id: arg
+prototype: arg(x)
+---
+gp_args: Gp
+id: asin
+prototype: asin(x)
+---
+gp_args: Gp
+id: asinh
+prototype: asinh(x)
+---
+gp_args: Gp
+id: atan
+prototype: atan(x)
+---
+gp_args: Gp
+id: atanh
+prototype: atanh(x)
+---
+gp_args: L
+id: bernfrac
+prototype: bernfrac(x)
+---
+gp_args: LDn
+id: bernpol
+prototype: bernpol(n, {v = 'x})
+---
+gp_args: Lp
+id: bernreal
+prototype: bernreal(x)
+---
+gp_args: L
+id: bernvec
+prototype: bernvec(x)
+---
+gp_args: GGp
+id: besselh1
+prototype: besselh1(nu,x)
+---
+gp_args: GGp
+id: besselh2
+prototype: besselh2(nu,x)
+---
+gp_args: GGp
+id: besseli
+prototype: besseli(nu,x)
+---
+gp_args: GGp
+id: besselj
+prototype: besselj(nu,x)
+---
+gp_args: GGp
+id: besseljh
+prototype: besseljh(n,x)
+---
+gp_args: GGp
+id: besselk
+prototype: besselk(nu,x)
+---
+gp_args: GGp
+id: besseln
+prototype: besseln(nu,x)
+---
+gp_args: p
+id: Catalan
+---
+gp_args: Gp
+id: cos
+prototype: cos(x)
+---
+gp_args: Gp
+id: cosh
+prototype: cosh(x)
+---
+gp_args: Gp
+id: cotan
+prototype: cotan(x)
+---
+gp_args: Gp
+id: dilog
+prototype: dilog(x)
+---
+gp_args: GDGp
+id: eint1
+prototype: eint1(x,{n})
+---
+gp_args: Gp
+id: erfc
+prototype: erfc(x)
+---
+gp_args: GD0
+id: eta
+prototype: eta(z,{flag=0})
+---
+gp_args: p
+id: Euler
+---
+gp_args: Gp
+id: exp
+prototype: exp(x)
+---
+gp_args: Gp
+id: gamma
+prototype: gamma(s)
+---
+gp_args: Gp
+id: gammah
+prototype: gammah(x)
+---
+gp_args: GGGp
+id: hyperu
+prototype: hyperu(a,b,x)
+---
+id: I
+---
+gp_args: GGDGp
+id: incgam
+prototype: incgam(s,x,{g})
+---
+gp_args: GGp
+id: incgamc
+prototype: incgamc(s,x)
+---
+gp_args: Gp
+id: lngamma
+prototype: lngamma(x)
+---
+gp_args: Gp
+id: log
+prototype: log(x)
+---
+gp_args: p
+id: Pi
+---
+gp_args: LGD0
+id: polylog
+prototype: polylog(m,x,{flag=0})
+---
+gp_args: Gp
+id: psi
+prototype: psi(x)
+---
+gp_args: Gp
+id: sin
+prototype: sin(x)
+---
+gp_args: Gp
+id: sinh
+prototype: sinh(x)
+---
+gp_args: G
+id: sqr
+prototype: sqr(x)
+---
+gp_args: Gp
+id: sqrt
+prototype: sqrt(x)
+---
+gp_args: GGD
+id: sqrtn
+prototype: sqrtn(x,n,{&z})
+---
+gp_args: Gp
+id: tan
+prototype: tan(x)
+---
+gp_args: Gp
+id: tanh
+prototype: tanh(x)
+---
+gp_args: G
+id: teichmuller
+prototype: teichmuller(x)
+---
+gp_args: GGp
+id: theta
+prototype: theta(q,z)
+---
+gp_args: GLp
+id: thetanullk
+prototype: thetanullk(q,k)
+---
+gp_args: GD0
+id: weber
+prototype: weber(x,{flag=0})
+---
+gp_args: Gp
+id: zeta
+prototype: zeta(s)

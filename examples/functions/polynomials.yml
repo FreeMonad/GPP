@@ -1,0 +1,180 @@
+---
+gp_args: GDn
+id: deriv
+prototype: deriv(x,{v})
+---
+gp_args: GGGD1
+id: diffop
+prototype: diffop(x,v,d,{n=1})
+---
+gp_args: GC
+id: eval
+prototype: eval(x)
+---
+gp_args: GGLD0
+id: factorpadic
+prototype: factorpadic(pol,p,r,{flag=0})
+---
+gp_args: GDn
+id: intformal
+prototype: intformal(x,{v})
+---
+gp_args: GD1
+id: O
+prototype: O(p^e)
+---
+gp_args: GG
+id: padicappr
+prototype: padicappr(pol,a)
+---
+gp_args: GGD0
+id: padicfields
+prototype: padicfields(p, N, {flag=0})
+---
+gp_args: LD1
+id: polchebyshev
+prototype: polchebyshev(n,{flag=1},{a='x})
+---
+gp_args: GLDn
+id: polcoeff
+prototype: polcoeff(x,n,{v})
+---
+gp_args: LDG
+id: polcyclo
+prototype: polcyclo(n,{a = 'x})
+---
+gp_args: G
+id: polcyclofactors
+prototype: polcyclofactors(f)
+---
+gp_args: lGDn
+id: poldegree
+prototype: poldegree(x,{v})
+---
+gp_args: GDn
+id: poldisc
+prototype: poldisc(pol,{v})
+---
+gp_args: G
+id: poldiscreduced
+prototype: poldiscreduced(f)
+---
+gp_args: G
+id: polgraeffe
+prototype: polgraeffe(f)
+---
+gp_args: GGGL
+id: polhensellift
+prototype: polhensellift(A, B, p, e)
+---
+gp_args: LDG
+id: polhermite
+prototype: polhermite(n,{a='x})
+---
+gp_args: GDGDGD
+id: polinterpolate
+prototype: polinterpolate(X,{Y},{x},{&e})
+---
+gp_args: lG
+id: poliscyclo
+prototype: poliscyclo(f)
+---
+gp_args: lG
+id: poliscycloprod
+prototype: poliscycloprod(f)
+---
+gp_args: lG
+id: polisirreducible
+prototype: polisirreducible(pol)
+---
+gp_args: GDn
+id: pollead
+prototype: pollead(x,{v})
+---
+gp_args: LDG
+id: pollegendre
+prototype: pollegendre(n,{a='x})
+---
+gp_args: G
+id: polrecip
+prototype: polrecip(pol)
+---
+gp_args: GGDnD0
+id: polresultant
+prototype: polresultant(x,y,{v},{flag=0})
+---
+gp_args: Gp
+id: polroots
+prototype: polroots(x)
+---
+gp_args: GGD0
+id: polrootsmod
+prototype: polrootsmod(pol,p,{flag=0})
+---
+gp_args: GGL
+id: polrootspadic
+prototype: polrootspadic(x,p,r)
+---
+gp_args: lGDGDG
+id: polsturm
+prototype: polsturm(pol,{a},{b})
+---
+gp_args: LLDn
+id: polsubcyclo
+prototype: polsubcyclo(n,d,{v='x})
+---
+gp_args: GG
+id: polsylvestermatrix
+prototype: polsylvestermatrix(x,y)
+---
+gp_args: GL
+id: polsym
+prototype: polsym(x,n)
+---
+gp_args: LDn
+id: poltchebi
+prototype: poltchebi(n,{v='x})
+---
+gp_args: LL
+id: polzagier
+prototype: polzagier(n,m)
+---
+gp_args: GG
+id: serconvol
+prototype: serconvol(x,y)
+---
+gp_args: G
+id: serlaplace
+prototype: serlaplace(x)
+---
+gp_args: G
+id: serreverse
+prototype: serreverse(x)
+---
+gp_args: GnG
+id: subst
+prototype: subst(x,y,z)
+---
+gp_args: GGG
+id: substpol
+prototype: substpol(x,y,z)
+---
+gp_args: GGG
+id: substvec
+prototype: substvec(x,v,w)
+---
+gp_args: GDn
+id: sumformal
+prototype: sumformal(f,{v})
+---
+gp_args: GnDP
+id: taylor
+prototype: taylor(x,t,{d=seriesprecision})
+---
+gp_args: GGDG
+id: thue
+prototype: thue(tnf,a,{sol})
+---
+gp_args: GD0
+id: thueinit
+prototype: thueinit(P,{flag=0})

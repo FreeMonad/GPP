@@ -1,0 +1,267 @@
+---
+gp_args: GLD0
+id: algdep
+prototype: algdep(x,k,{flag=0})
+---
+gp_args: GDnD3
+id: charpoly
+prototype: charpoly(A,{v='x},{flag=3})
+---
+gp_args: GDG
+id: concat
+prototype: concat(x,{y})
+---
+gp_args: vVGDGI
+id: forqfvec
+---
+gp_args: GD0
+id: lindep
+prototype: lindep(x,{flag=0})
+---
+gp_args: D0
+id: listcreate
+prototype: listcreate()
+---
+gp_args: WGL
+id: listinsert
+prototype: listinsert(L,x,n)
+---
+gp_args: vG
+id: listkill
+prototype: listkill(L)
+---
+gp_args: vWD0
+id: listpop
+prototype: listpop(list,{n})
+---
+gp_args: WGD0
+id: listput
+prototype: listput(list,x,{n})
+---
+gp_args: vWD0
+id: listsort
+prototype: listsort(L,{flag=0})
+---
+gp_args: GD0
+id: matadjoint
+prototype: matadjoint(x,{flag=0})
+---
+gp_args: G
+id: matcompanion
+prototype: matcompanion(x)
+---
+gp_args: G
+id: matconcat
+prototype: matconcat(v)
+---
+gp_args: GD0
+id: matdet
+prototype: matdet(x,{flag=0})
+---
+gp_args: G
+id: matdetint
+prototype: matdetint(x)
+---
+gp_args: G
+id: matdiagonal
+prototype: matdiagonal(x)
+---
+gp_args: Gp
+id: mateigen
+prototype: mateigen(x)
+---
+gp_args: GD0
+id: matfrobenius
+prototype: matfrobenius(M,{flag},{v='x})
+---
+gp_args: G
+id: mathess
+prototype: mathess(x)
+---
+gp_args: L
+id: mathilbert
+prototype: mathilbert(n)
+---
+gp_args: GD0
+id: mathnf
+prototype: mathnf(M,{flag=0})
+---
+gp_args: GG
+id: mathnfmod
+prototype: mathnfmod(x,d)
+---
+gp_args: GG
+id: mathnfmodid
+prototype: mathnfmodid(x,d)
+---
+gp_args: L
+id: matid
+prototype: matid(n)
+---
+gp_args: GD0
+id: matimage
+prototype: matimage(x,{flag=0})
+---
+gp_args: G
+id: matimagecompl
+prototype: matimagecompl(x)
+---
+gp_args: G
+id: matindexrank
+prototype: matindexrank(x)
+---
+gp_args: GG
+id: matintersect
+prototype: matintersect(x,y)
+---
+gp_args: GG
+id: matinverseimage
+prototype: matinverseimage(x,y)
+---
+gp_args: iG
+id: matisdiagonal
+prototype: matisdiagonal(x)
+---
+gp_args: GD0
+id: matker
+prototype: matker(x,{flag=0})
+---
+gp_args: GD0
+id: matkerint
+prototype: matkerint(x,{flag=0})
+---
+gp_args: GG
+id: matmuldiagonal
+prototype: matmuldiagonal(x,d)
+---
+gp_args: GG
+id: matmultodiagonal
+prototype: matmultodiagonal(x,y)
+---
+gp_args: LDG
+id: matpascal
+prototype: matpascal(n,{q})
+---
+gp_args: lG
+id: matrank
+prototype: matrank(x)
+---
+gp_args: GGDVDVDE
+id: matrix
+prototype: matrix(m,n,{X},{Y},{expr=0})
+---
+gp_args: GDG
+id: matrixqz
+prototype: matrixqz(A,{p=0})
+---
+gp_args: G
+id: matsize
+prototype: matsize(x)
+---
+gp_args: GD0
+id: matsnf
+prototype: matsnf(X,{flag=0})
+---
+gp_args: GG
+id: matsolve
+prototype: matsolve(M,B)
+---
+gp_args: GGGD0
+id: matsolvemod
+prototype: matsolvemod(M,D,B,{flag=0})
+---
+gp_args: G
+id: matsupplement
+prototype: matsupplement(x)
+---
+gp_args: G
+id: mattranspose
+prototype: mattranspose(x)
+---
+gp_args: GDn
+id: minpoly
+prototype: minpoly(A,{v='x})
+---
+gp_args: G
+id: qfgaussred
+prototype: qfgaussred(q)
+---
+gp_args: Gp
+id: qfjacobi
+prototype: qfjacobi(x)
+---
+gp_args: GD0
+id: qflll
+prototype: qflll(x,{flag=0})
+---
+gp_args: GD0
+id: qflllgram
+prototype: qflllgram(G,{flag=0})
+---
+gp_args: GDGDGD0
+id: qfminim
+prototype: qfminim(x,{b},{m},{flag=0})
+---
+gp_args: G
+id: qfperfection
+prototype: qfperfection(G)
+---
+gp_args: GGD0
+id: qfrep
+prototype: qfrep(q,B,{flag=0})
+---
+gp_args: G
+id: qfsign
+prototype: qfsign(x)
+---
+gp_args: GGDG
+id: setbinop
+prototype: setbinop(f,X,{Y})
+---
+gp_args: GG
+id: setintersect
+prototype: setintersect(x,y)
+---
+gp_args: lG
+id: setisset
+prototype: setisset(x)
+---
+gp_args: GG
+id: setminus
+prototype: setminus(x,y)
+---
+gp_args: lGGD0
+id: setsearch
+prototype: setsearch(S,x,{flag=0})
+---
+gp_args: GG
+id: setunion
+prototype: setunion(x,y)
+---
+gp_args: G
+id: trace
+prototype: trace(x)
+---
+gp_args: GGDG
+id: vecextract
+prototype: vecextract(x,y,{z})
+---
+gp_args: lGGDG
+id: vecsearch
+prototype: vecsearch(v,x,{cmpf})
+---
+gp_args: GDGD0
+id: vecsort
+prototype: vecsort(x,{cmpf},{flag=0})
+---
+gp_args: GDVDE
+id: vector
+prototype: vector(n,{X},{expr=0})
+---
+gp_args: GDVDE
+id: vectorsmall
+prototype: vectorsmall(n,{X},{expr=0})
+---
+gp_args: GDVDE
+id: vectorv
+prototype: vectorv(n,{X},{expr=0})

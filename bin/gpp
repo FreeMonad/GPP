@@ -33,10 +33,9 @@ GetOptions(
 	   'disable-eval' => \$disable_eval,
 	   'prompt=s'  => \$prompt,
 	   'version' => sub { print "GPP $GPP::VERSION","\n" ; exit(0); },
-	   'help'    => sub { help() ; exit(0); },
-	  );
+       );
 
-my $gpp = GPP->new( 'prompt' => $prompt, 'disable_eval' => $disable_eval, 'prime_limit' => $prime_limit );
+my $gpp = GPP->new( 'prompt' => $prompt, 'prime_limit' => $prime_limit );
 
 $gpp->start();
 
@@ -51,10 +50,8 @@ while ( defined ( $_ = $term->readline( update_prompt() ) ) ) {
 
   warn $@ if $@;
 
-  my $output = join( "", ('%', $result->{history}, ' = ', "\n", $result->{output}, "\n\n") );
-
-  print $OUT "$output"
-    unless $@;
+  print $OUT "$result"
+      unless $@;
 }
 
 sub gpp_header {
@@ -62,10 +59,6 @@ sub gpp_header {
   print $OUT $gpp->license(), "\n";
   print $OUT $gpp->get_version(), "\n";
   print $OUT "\n";
-}
-
-sub help {
-  print 'not implemented',"\n";
 }
 
 sub update_prompt {

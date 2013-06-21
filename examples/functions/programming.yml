@@ -1,0 +1,247 @@
+---
+gp_args: vrs
+id: addhelp
+prototype: addhelp(sym,str)
+---
+gp_args: D0
+id: alarm
+prototype: alarm({s = 0},{code})
+---
+gp_args: vrr
+id: alias
+prototype: alias(newsym,sym)
+---
+gp_args: vDG
+id: allocatemem
+prototype: allocatemem({s=0})
+---
+gp_args: GG
+id: apply
+prototype: apply(f, A)
+---
+gp_args: D1
+id: break
+prototype: break({n=1})
+---
+gp_args: v
+id: breakpoint
+prototype: breakpoint()
+---
+gp_args: vD1
+id: dbg_down
+prototype: dbg_down({n=1})
+---
+id: dbg_err
+prototype: dbg_err()
+---
+gp_args: vD1
+id: dbg_up
+prototype: dbg_up({n=1})
+---
+gp_args: vGD
+id: dbg_x
+prototype: dbg_x(A{,n})
+---
+gp_args: DrDs
+id: default
+prototype: default({key},{val})
+---
+gp_args: G
+id: errname
+prototype: errname(E)
+---
+gp_args: vs
+id: error
+prototype: error({str}*)
+---
+gp_args: lGs
+id: _eval_mnemonic
+---
+gp_args: s
+id: extern
+prototype: extern(str)
+---
+gp_args: s
+id: externstr
+prototype: externstr(str)
+---
+gp_args: vV
+id: for
+prototype: for(X=a,b,seq)
+---
+gp_args: vV
+id: forcomposite
+prototype: forcomposite(n=a,{b},seq)
+---
+gp_args: vGVI
+id: fordiv
+prototype: fordiv(n,X,seq)
+---
+gp_args: vVLLI
+id: forell
+prototype: forell(E,a,b,seq)
+---
+gp_args: vV
+id: forprime
+prototype: forprime(p=a,{b},seq)
+---
+gp_args: vV
+id: forstep
+prototype: forstep(X=a,b,s,seq)
+---
+gp_args: vV
+id: forsubgroup
+prototype: forsubgroup(H=G,{bound},seq)
+---
+gp_args: vV
+id: forvec
+prototype: forvec(X=v,seq,{flag=0})
+---
+gp_args: s
+id: getenv
+prototype: getenv(s)
+---
+id: getheap
+prototype: getheap()
+---
+id: getrand
+prototype: getrand()
+---
+gp_args: l
+id: getstack
+prototype: getstack()
+---
+gp_args: l
+id: gettime
+prototype: gettime()
+---
+id: global
+prototype: global(list of variables)
+---
+gp_args: GE
+id: _multi_if
+prototype: if(a,{seq1},{seq2})
+---
+gp_args: EVE
+id: iferr
+prototype: iferr(seq1,E,seq2)
+---
+gp_args: sEVE
+id: iferrname
+prototype: iferrname(str,seq1,E,seq2)
+---
+id: input
+prototype: input()
+---
+gp_args: vrrD
+id: install
+prototype: install(name,code,{gpname},{lib})
+---
+gp_args: vr
+id: kill
+prototype: kill(sym)
+---
+id: local
+prototype: local(x,...,z)
+---
+id: my
+prototype: my(x,...,z)
+---
+gp_args: D1
+id: next
+prototype: next({n=1})
+---
+gp_args: vs
+id: print
+prototype: print({str}*)
+---
+gp_args: vs
+id: print1
+prototype: print1({str}*)
+---
+gp_args: vss
+id: printf
+prototype: printf(fmt,{x}*)
+---
+gp_args: vss
+id: printsep
+prototype: printsep(sep,{str}*)
+---
+gp_args: vss
+id: printsep1
+prototype: printsep(sep,{str}*)
+---
+gp_args: vs
+id: printtex
+prototype: printtex({str}*)
+---
+gp_args: vD0
+id: quit
+prototype: quit({status = 0})
+---
+gp_args: D
+id: read
+prototype: read({filename})
+---
+gp_args: D
+id: readvec
+prototype: readvec({filename})
+---
+gp_args: DG
+id: return
+prototype: return({x=0})
+---
+gp_args: GGD0
+id: select
+prototype: select(f, A, {flag = 0})
+---
+gp_args: vG
+id: setrand
+prototype: setrand(n)
+---
+gp_args: vs
+id: system
+prototype: system(str)
+---
+gp_args: DrDEDE
+id: trap
+prototype: trap({e}, {rec}, seq)
+---
+gp_args: G
+id: type
+prototype: type(x)
+---
+gp_args: vEI
+id: until
+prototype: until(a,seq)
+---
+id: version
+prototype: version()
+---
+gp_args: vs
+id: warning
+prototype: warning({str}*)
+---
+gp_args: vr
+id: whatnow
+prototype: whatnow(key)
+---
+gp_args: vEI
+id: while
+prototype: while(a,seq)
+---
+gp_args: vss
+id: write
+prototype: write(filename,{str}*)
+---
+gp_args: vss
+id: write1
+prototype: write1(filename,{str}*)
+---
+gp_args: vsDG
+id: writebin
+prototype: writebin(filename,{x})
+---
+gp_args: vss
+id: writetex
+prototype: writetex(filename,{str}*)

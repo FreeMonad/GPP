@@ -1,0 +1,212 @@
+---
+gp_args: G
+id: binary
+prototype: binary(x)
+---
+gp_args: GG
+id: bitand
+prototype: bitand(x,y)
+---
+gp_args: GD
+id: bitneg
+prototype: bitneg(x,{n=-1})
+---
+gp_args: GG
+id: bitnegimply
+prototype: bitnegimply(x,y)
+---
+gp_args: GG
+id: bitor
+prototype: bitor(x,y)
+---
+gp_args: GL
+id: bittest
+prototype: bittest(x,n)
+---
+gp_args: GG
+id: bitxor
+prototype: bitxor(x,y)
+---
+gp_args: G
+id: ceil
+prototype: ceil(x)
+---
+gp_args: GDn
+id: centerlift
+prototype: centerlift(x,{v})
+---
+gp_args: GD0
+id: Col
+prototype: Col(x, {n})
+---
+gp_args: GL
+id: component
+prototype: component(x,n)
+---
+gp_args: G
+id: conj
+prototype: conj(x)
+---
+gp_args: Gp
+id: conjvec
+prototype: conjvec(z)
+---
+gp_args: G
+id: denominator
+prototype: denominator(x)
+---
+gp_args: GDG
+id: digits
+prototype: digits(x,{b=10})
+---
+gp_args: G
+id: floor
+prototype: floor(x)
+---
+gp_args: G
+id: frac
+prototype: frac(x)
+---
+gp_args: lG
+id: hammingweight
+prototype: hammingweight(x)
+---
+gp_args: G
+id: imag
+prototype: imag(x)
+---
+gp_args: lG
+id: length
+prototype: length(x)
+---
+gp_args: GDn
+id: lift
+prototype: lift(x,{v})
+---
+gp_args: DG
+id: List
+prototype: List({x=[]})
+---
+gp_args: DG
+id: Mat
+prototype: Mat({x=[]})
+---
+gp_args: GG
+id: Mod
+prototype: Mod(x,y)
+---
+gp_args: G
+id: norm
+prototype: norm(x)
+---
+gp_args: G
+id: norml2
+prototype: norml2(x)
+---
+gp_args: G
+id: numerator
+prototype: numerator(x)
+---
+gp_args: LG
+id: numtoperm
+prototype: numtoperm(n,k)
+---
+gp_args: lGG
+id: padicprec
+prototype: padicprec(x,p)
+---
+gp_args: G
+id: permtonum
+prototype: permtonum(x)
+---
+gp_args: GDn
+id: Pol
+prototype: Pol(t,{v='x})
+---
+gp_args: GDn
+id: Polrev
+prototype: Polrev(t,{v='x})
+---
+gp_args: GD0
+id: precision
+prototype: precision(x,{n})
+---
+gp_args: GGGDGp
+id: Qfb
+prototype: Qfb(a,b,c,{D=0.})
+---
+gp_args: DG
+id: random
+prototype: random({N=2^31})
+---
+gp_args: G
+id: real
+prototype: real(x)
+---
+gp_args: GD
+id: round
+prototype: round(x,{&e})
+---
+gp_args: GDnDP
+id: Ser
+prototype: Ser(s,{v='x},{d=seriesprecision})
+---
+gp_args: DG
+id: Set
+prototype: Set({x=[]})
+---
+gp_args: G
+id: simplify
+prototype: simplify(x)
+---
+gp_args: lG
+id: sizebyte
+prototype: sizebyte(x)
+---
+gp_args: lG
+id: sizedigit
+prototype: sizedigit(x)
+---
+gp_args: s
+id: Str
+prototype: Str({x}*)
+---
+gp_args: G
+id: Strchr
+prototype: Strchr(x)
+---
+gp_args: s
+id: Strexpand
+prototype: Strexpand({x}*)
+---
+gp_args: ss
+id: Strprintf
+prototype: Strprintf(fmt,{x}*)
+---
+gp_args: s
+id: Strtex
+prototype: Strtex({x}*)
+---
+gp_args: GD
+id: truncate
+prototype: truncate(x,{&e})
+---
+gp_args: lGG
+id: valuation
+prototype: valuation(x,p)
+---
+gp_args: DG
+id: variable
+prototype: variable({x})
+---
+gp_args: GD0
+id: Vec
+prototype: Vec(x, {n})
+---
+gp_args: GD0
+id: Vecrev
+prototype: Vecrev(x, {n})
+---
+gp_args: GD0
+id: Vecsmall
+prototype: Vecsmall(x, {n})

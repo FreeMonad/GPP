@@ -1,0 +1,192 @@
+---
+gp_args: GGG
+id: elladd
+prototype: elladd(E,z1,z2)
+---
+gp_args: GG
+id: ellak
+prototype: ellak(E,n)
+---
+gp_args: GL
+id: ellan
+prototype: ellan(E,n)
+---
+gp_args: GDGp
+id: ellanalyticrank
+prototype: ellanalyticrank(e, {eps})
+---
+gp_args: GDG
+id: ellap
+prototype: ellap(E,{p})
+---
+gp_args: GGGp
+id: ellbil
+prototype: ellbil(E,z1,z2)
+---
+gp_args: GDG
+id: ellcard
+prototype: ellcard(E,{p})
+---
+gp_args: GG
+id: ellchangecurve
+prototype: ellchangecurve(E,v)
+---
+gp_args: GG
+id: ellchangepoint
+prototype: ellchangepoint(x,v)
+---
+gp_args: G
+id: ellconvertname
+prototype: ellconvertname(name)
+---
+gp_args: GLDn
+id: elldivpol
+prototype: elldivpol(E,n,{v='x})
+---
+gp_args: GLD0
+id: elleisnum
+prototype: elleisnum(w,k,{flag=0})
+---
+gp_args: Gp
+id: elleta
+prototype: elleta(w)
+---
+gp_args: G
+id: ellfromj
+prototype: ellfromj(j)
+---
+gp_args: G
+id: ellgenerators
+prototype: ellgenerators(E)
+---
+gp_args: G
+id: ellglobalred
+prototype: ellglobalred(E)
+---
+gp_args: GDGD0
+id: ellgroup
+prototype: ellgroup(E,{p},{flag})
+---
+gp_args: G
+id: ellheegner
+prototype: ellheegner(E)
+---
+gp_args: GGD2
+id: ellheight
+prototype: ellheight(E,x,{flag=2})
+---
+gp_args: GGp
+id: ellheightmatrix
+prototype: ellheightmatrix(E,x)
+---
+gp_args: G
+id: ellidentify
+prototype: ellidentify(E)
+---
+gp_args: GDGp
+id: ellinit
+prototype: ellinit(x,{D=1})
+---
+gp_args: GG
+id: ellisoncurve
+prototype: ellisoncurve(E,z)
+---
+gp_args: Gp
+id: ellj
+prototype: ellj(x)
+---
+gp_args: GLp
+id: ellL1
+prototype: ellL1(e, r)
+---
+gp_args: GG
+id: elllocalred
+prototype: elllocalred(E,p)
+---
+gp_args: GGGDG
+id: elllog
+prototype: elllog(E,P,G,{o})
+---
+gp_args: GGDGp
+id: elllseries
+prototype: elllseries(E,s,{A=1})
+---
+gp_args: GD
+id: ellminimalmodel
+prototype: ellminimalmodel(E,{&v})
+---
+gp_args: LDnDn
+id: ellmodulareqn
+prototype: ellmodulareqn(N,{x},{y})
+---
+gp_args: GGG
+id: ellmul
+prototype: ellmul(E,z,n)
+---
+gp_args: GG
+id: ellneg
+prototype: ellneg(E,z)
+---
+gp_args: GGDG
+id: ellorder
+prototype: ellorder(E,z,{o})
+---
+gp_args: GGp
+id: ellordinate
+prototype: ellordinate(E,x)
+---
+gp_args: GD0
+id: ellperiods
+prototype: ellperiods(w, {flag = 0})
+---
+gp_args: GGp
+id: ellpointtoz
+prototype: ellpointtoz(E,P)
+---
+gp_args: GGG
+id: ellpow
+prototype: ellpow(E,z,n)
+---
+gp_args: lGDG
+id: ellrootno
+prototype: ellrootno(E,{p})
+---
+gp_args: G
+id: ellsearch
+prototype: ellsearch(N)
+---
+gp_args: GDGD0
+id: ellsigma
+prototype: ellsigma(E,{z='x},{flag=0})
+---
+gp_args: GGG
+id: ellsub
+prototype: ellsub(E,z1,z2)
+---
+gp_args: GDP
+id: elltaniyama
+prototype: elltaniyama(E, {d = seriesprecision})
+---
+gp_args: GGGG
+id: elltatepairing
+prototype: elltatepairing(E, P, Q, m)
+---
+gp_args: GD0
+id: elltors
+prototype: elltors(E,{flag=0})
+---
+gp_args: GGGG
+id: ellweilpairing
+prototype: ellweilpairing(E, P, Q, m)
+---
+gp_args: GDGD0
+id: ellwp
+prototype: ellwp(w,{z='x},{flag=0})
+---
+gp_args: GDGp
+id: ellzeta
+prototype: ellzeta(E,{z='x})
+---
+gp_args: GGp
+id: ellztopoint
+prototype: ellztopoint(E,z)
